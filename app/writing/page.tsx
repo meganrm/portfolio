@@ -15,10 +15,10 @@ export default function WritingPage() {
         <header className="writing-head">
           <Eyebrow dot>Writing &amp; notes</Eyebrow>
           <h1 className="detail-title" style={{ fontSize: 'clamp(38px,5vw,60px)' }}>
-            Methods, essays, and field&nbsp;notes
+            Publications, research notes, and methods
           </h1>
           <p className="hero-lead" style={{ marginTop: 20 }}>
-            Working notes from the space between code, microscopy, and paint.
+            Write-ups on visualization work, scientific findings, and the technical notes I wish I&rsquo;d had.
           </p>
         </header>
 

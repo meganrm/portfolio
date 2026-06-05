@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import Eyebrow from '@/components/Eyebrow'
 import Molecule from '@/components/Molecule'
-import ImagePlaceholder from '@/components/ImagePlaceholder'
+import ProjectImage from '@/components/ProjectImage'
 import Tag from '@/components/Tag'
 import ScrollToWorkButton from '@/components/ScrollToWorkButton'
 import { PROJECTS } from '@/data/projects'
@@ -16,15 +16,16 @@ export default function Home() {
           <Molecule size={190} />
         </div>
         <div className="container">
-          <Eyebrow dot>Scientific Visualization · Research · Fine Art</Eyebrow>
+          <Eyebrow dot>Scientific Visualization · Civic Tech · Fine Art · Seattle</Eyebrow>
           <h1 className="hero-display">
-            I make the invisible<br />
-            <span className="serif">legible</span> — cells, data,<br />
-            and what&rsquo;s between.
+            I make invisible<br />
+            things <span className="serif">visible</span> —<br />
+            cells, data, systems.
           </h1>
           <p className="hero-lead">
-            I&rsquo;m Megan — a scientific-visualization engineer and artist. I build tools and
-            images that help people see biology at scales the eye can&rsquo;t reach.
+            I&rsquo;m Megan Riel-Mehan — a visualization scientist and full-stack engineer. I build tools
+            that let people interact with complex data in a meaningful way, from cell biology
+            to political accountability to community resources.
           </p>
           <div className="hero-cta">
             <ScrollToWorkButton />
@@ -39,16 +40,16 @@ export default function Home() {
           <div className="section-head">
             <div>
               <Eyebrow>Selected work</Eyebrow>
-              <h2 className="section-title">Things I&rsquo;ve made recently</h2>
+              <h2 className="section-title">Research tools and civic tech</h2>
             </div>
             <Link href="/writing" className="link-arrow">
-              All projects <ArrowRight size={16} />
+              All writing <ArrowRight size={16} />
             </Link>
           </div>
           <div className="work-grid">
             {PROJECTS.map((p) => (
               <Link key={p.id} href={`/work/${p.id}`} className="work-card">
-                <ImagePlaceholder tone={p.tone} label={p.medium} />
+                <ProjectImage src={p.heroImage} alt={p.title} tone={p.tone} label={p.medium} />
                 <div className="work-card-body">
                   <div className="meta">{p.year} — {p.medium}</div>
                   <h3 className="work-card-title">{p.title}</h3>
@@ -72,17 +73,17 @@ export default function Home() {
             <div className="strip-item">
               <Eyebrow dot>Currently</Eyebrow>
               <h4>Allen Institute for Cell Science</h4>
-              <p>Building real-time visualization of integrated cell models for the web.</p>
+              <p>Visualization scientist and software engineer — building web tools for interactive cell biology research.</p>
             </div>
             <div className="strip-item">
-              <Eyebrow dot>In the studio</Eyebrow>
-              <h4>Microscopy → paint</h4>
-              <p>A new series translating confocal imagery into oil on linen.</p>
+              <Eyebrow dot>Also</Eyebrow>
+              <h4>Town Hall Project</h4>
+              <p>Lead developer — tracking lawmaker accountability to constituents since 2017.</p>
             </div>
             <div className="strip-item">
               <Eyebrow dot>Background</Eyebrow>
-              <h4>PhD, Chemical Biology</h4>
-              <p>UCSF &amp; UC Berkeley — chemistry, computation, and art.</p>
+              <h4>PhD Chemistry, UCSF</h4>
+              <p>Fine art background, UC Berkeley — chemistry, computation, and paint.</p>
             </div>
           </div>
         </div>

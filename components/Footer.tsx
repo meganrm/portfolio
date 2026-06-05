@@ -10,7 +10,7 @@ export default function Footer() {
             <Mark size={28} />
             <span className="brand-name" style={{ fontSize: 17 }}>Megan Riel-Mehan</span>
           </Link>
-          <p>Scientific visualization, research &amp; fine art — making the invisible legible.</p>
+          <p>I make invisible things visible — cell biology, political accountability, community resources.</p>
         </div>
         <div className="footer-cols">
           <div className="footer-col">

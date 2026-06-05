@@ -1,9 +1,9 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { ArrowLeft, ArrowRight } from 'lucide-react'
+import { ArrowLeft, ArrowRight, ExternalLink } from 'lucide-react'
 import Eyebrow from '@/components/Eyebrow'
 import Tag from '@/components/Tag'
-import ImagePlaceholder from '@/components/ImagePlaceholder'
+import ProjectImage from '@/components/ProjectImage'
 import { PROJECTS } from '@/data/projects'
 import type { Metadata } from 'next'
 
@@ -38,12 +38,22 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             <div className="col"><h6>Medium</h6><p>{project.medium}</p></div>
             <div className="col"><h6>Role</h6><p>{project.role}</p></div>
             <div className="col"><h6>Context</h6><p>{project.context}</p></div>
+            {project.url && (
+              <div className="col">
+                <h6>Live site</h6>
+                <p>
+                  <a href={project.url} target="_blank" rel="noopener noreferrer" className="link-arrow" style={{ fontSize: 15 }}>
+                    Visit <ExternalLink size={14} />
+                  </a>
+                </p>
+              </div>
+            )}
           </div>
         </header>
       </div>
 
       <div className="container detail-hero">
-        <ImagePlaceholder tone={project.tone} label={`${project.title} — hero`} style={{ height: 460 }} />
+        <ProjectImage src={project.heroImage} alt={`${project.title} hero`} tone={project.tone} label={project.title} style={{ height: 460 }} />
       </div>
 
       <div className="container">
@@ -55,8 +65,8 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         </div>
 
         <div className="detail-gallery">
-          <ImagePlaceholder tone={project.tone} label="Process" nodes={false} />
-          <ImagePlaceholder tone={project.altTone} label="Detail" nodes={false} />
+          <ProjectImage src={project.processImage} alt={`${project.title} process`} tone={project.tone} label="Process" nodes={false} />
+          <ProjectImage src={project.detailImage} alt={`${project.title} detail`} tone={project.altTone} label="Detail" nodes={false} />
         </div>
 
         <div className="detail-body prose-col">

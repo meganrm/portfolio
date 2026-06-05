@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { ArrowLeft } from 'lucide-react'
+import { ArrowLeft, ExternalLink } from 'lucide-react'
 import Eyebrow from '@/components/Eyebrow'
 import Tag from '@/components/Tag'
 import ImagePlaceholder from '@/components/ImagePlaceholder'
@@ -56,6 +56,13 @@ export default function PostPage({ params }: { params: { slug: string } }) {
           <h3>{post.h1}</h3>
           <p>{post.body2}</p>
           <p>{post.body3}</p>
+          {post.url && (
+            <p>
+              <a href={post.url} target="_blank" rel="noopener noreferrer" className="link-arrow">
+                Read the original <ExternalLink size={15} />
+              </a>
+            </p>
+          )}
         </div>
       </div>
     </main>

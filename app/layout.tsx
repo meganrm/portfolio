@@ -5,7 +5,7 @@ import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'Megan Riel-Mehan',
-  description: 'Scientific visualization, research & fine art — making the invisible legible.',
+  description: 'Visualization scientist and full-stack engineer — making cell biology, civic data, and complex systems legible.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
