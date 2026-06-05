@@ -493,3 +493,158 @@ img { display: block; max-width: 100%; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
 }
+
+/* =====================================================================
+   WORK CARD (portfolio grid — gradient overlay + parallax dots)
+   ===================================================================== */
+
+/* Card wrapper — overflow visible so dots straddle the image border */
+.wcard { position: relative; cursor: pointer; overflow: visible; text-decoration: none; color: inherit; display: block; }
+
+/* Image container — clips the photo but not the dots */
+.wcard-img {
+  height: 220px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--dur-base) var(--ease-out);
+}
+.wcard-img img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform 0.55s var(--ease-out);
+}
+.wcard:hover .wcard-img { box-shadow: var(--shadow-md); }
+.wcard:hover .wcard-img img { transform: scale(1.05); }
+
+/* Gradient overlay — tone color bleeds up from bottom */
+.wcard-img::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(var(--tone-rgb), 0.84) 0%,
+    rgba(var(--tone-rgb), 0.25) 44%,
+    transparent 68%
+  );
+  z-index: 1;
+  border-radius: var(--radius-lg);
+  pointer-events: none;
+}
+
+/* Dots layer — same dimensions as image, overflow visible */
+.wcard-dots {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 220px;
+  z-index: 10;
+  pointer-events: none;
+  overflow: visible;
+}
+
+/* Individual dot — uses CSS custom props set via inline style */
+.wcard-dot {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid rgba(33, 30, 26, 0.15);
+  transition: transform 0.55s var(--ease-out);
+}
+/* Parallax: translate by --dx/--dy on card hover */
+.wcard:hover .wcard-dot {
+  transform: translate(var(--dx, 0px), var(--dy, 0px));
+}
+
+/* Card body */
+.wcard-body { padding: 13px 2px 0; position: relative; z-index: 2; }
+.wcard-meta { font-family: var(--font-mono); font-size: 11px; color: var(--ink-2); letter-spacing: 0.01em; }
+.wcard-title {
+  font-family: var(--font-display); font-weight: 700; font-size: 20px;
+  letter-spacing: -0.02em; margin: 5px 0 3px; color: var(--fg);
+  display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap;
+}
+.wcard-blurb { font-size: 13px; color: var(--ink-2); line-height: 1.5; margin: 0; }
+.wcard-tags { display: flex; gap: 5px; margin-top: 9px; flex-wrap: wrap; }
+
+/* Featured badge */
+.wcard-badge {
+  font-family: var(--font-mono); font-size: 9px; text-transform: uppercase;
+  letter-spacing: 0.08em; background: var(--mustard-400); color: var(--ink);
+  padding: 2px 7px; border-radius: var(--radius-xs); white-space: nowrap;
+  font-weight: 600; flex-shrink: 0;
+}
+
+/* No-image fallback — gradient from tone color */
+.wcard-img-placeholder {
+  width: 100%; height: 100%;
+  background: linear-gradient(135deg, rgba(var(--tone-rgb), 1), rgba(var(--tone-rgb), 0.6));
+}
+
+/* =====================================================================
+   WORK GRID (full portfolio — 3 col)
+   ===================================================================== */
+.work-grid-full {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px 28px;
+}
+
+@media (max-width: 860px) {
+  .work-grid-full { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .work-grid-full { grid-template-columns: 1fr; }
+}
+
+/* =====================================================================
+   FILTER PILLS (work page tag filter bar)
+   ===================================================================== */
+.filter-bar { display: flex; gap: 8px; padding: 24px 0 36px; flex-wrap: wrap; }
+
+.filter-pill {
+  font-family: var(--font-mono); font-size: 11px; text-transform: uppercase;
+  letter-spacing: 0.06em; font-weight: 500; padding: 7px 16px;
+  border-radius: var(--radius-pill); border: 1.5px solid var(--line-strong);
+  background: transparent; color: var(--fg-muted); cursor: pointer;
+  white-space: nowrap; transition: background var(--dur-fast), color var(--dur-fast), border-color var(--dur-fast);
+}
+.filter-pill:hover { border-color: var(--fg); color: var(--fg); }
+.filter-pill.active { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+
+/* Tone-tinted inactive variants */
+.filter-pill-sci     { background: var(--mustard-100); color: var(--mustard-700); border-color: var(--mustard-300); }
+.filter-pill-sci.active     { background: var(--mustard-700); color: var(--cream); border-color: var(--mustard-700); }
+.filter-pill-research { background: var(--teal-50); color: var(--teal-600); border-color: var(--teal-200); }
+.filter-pill-research.active { background: var(--teal-600); color: var(--cream); border-color: var(--teal-600); }
+.filter-pill-civic   { background: var(--sage-100); color: var(--sage-500); border-color: var(--sage-200); }
+.filter-pill-civic.active   { background: var(--sage-500); color: var(--cream); border-color: var(--sage-500); }
+.filter-pill-art     { background: var(--clay-100); color: var(--clay-500); border-color: var(--clay-200); }
+.filter-pill-art.active     { background: var(--clay-500); color: var(--cream); border-color: var(--clay-500); }
+
+/* =====================================================================
+   ART GALLERY (portraits detail page)
+   ===================================================================== */
+.art-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 32px 0 48px;
+}
+.art-gallery-item {
+  position: relative;
+  height: 300px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--dur-base), transform var(--dur-base) var(--ease-out);
+}
+.art-gallery-item:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+@media (max-width: 860px) {
+  .art-gallery { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .art-gallery { grid-template-columns: 1fr; }
+}
