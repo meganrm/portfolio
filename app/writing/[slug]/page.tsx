@@ -1,0 +1,63 @@
+import Link from 'next/link'
+import { notFound } from 'next/navigation'
+import { ArrowLeft } from 'lucide-react'
+import Eyebrow from '@/components/Eyebrow'
+import Tag from '@/components/Tag'
+import ImagePlaceholder from '@/components/ImagePlaceholder'
+import { POSTS } from '@/data/posts'
+import type { Metadata } from 'next'
+
+export function generateStaticParams() {
+  return POSTS.map((p) => ({ slug: p.id }))
+}
+
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const post = POSTS.find((p) => p.id === params.slug)
+  if (!post) return {}
+  return { title: `${post.title} — Megan Riel-Mehan` }
+}
+
+export default function PostPage({ params }: { params: { slug: string } }) {
+  const post = POSTS.find((p) => p.id === params.slug)
+  if (!post) notFound()
+
+  const imgTone = post.tag.tone === 'clay' ? 'clay' : 'teal'
+
+  return (
+    <main>
+      <div className="container">
+        <Link href="/writing" className="back">
+          <ArrowLeft size={16} /> All writing
+        </Link>
+        <header className="article-head">
+          <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+            <Tag tone={post.tag.tone}>{post.tag.label}</Tag>
+            <span className="meta">{post.date} · {post.read}</span>
+          </div>
+          <h1 className="article-title">{post.title}</h1>
+          <div className="article-byline">
+            <div className="avatar">MR</div>
+            <div>
+              <div style={{ fontWeight: 600, fontSize: 15 }}>Megan Riel-Mehan</div>
+              <div className="meta" style={{ fontSize: 12 }}>Scientific Visualization</div>
+            </div>
+          </div>
+        </header>
+      </div>
+
+      <div className="container article-hero">
+        <ImagePlaceholder tone={imgTone} label="Cover" />
+      </div>
+
+      <div className="container">
+        <div className="article-body prose-col">
+          <p style={{ fontSize: 21, color: 'var(--ink-2)' }}>{post.lead}</p>
+          <p>{post.body1}</p>
+          <h3>{post.h1}</h3>
+          <p>{post.body2}</p>
+          <p>{post.body3}</p>
+        </div>
+      </div>
+    </main>
+  )
+}
