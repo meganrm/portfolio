@@ -7,7 +7,7 @@ import Mark from './Mark'
 
 const LINKS = [
   { href: '/work', label: 'Work', match: (p: string) => p === '/' || p.startsWith('/work') },
-  { href: '/writing', label: 'Papers & updates', match: (p: string) => p.startsWith('/writing') },
+  { href: '/notebook', label: 'Notebook', match: (p: string) => p.startsWith('/notebook') },
   { href: '/about', label: 'About', match: (p: string) => p === '/about' },
 ]
 

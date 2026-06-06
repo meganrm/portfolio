@@ -29,7 +29,7 @@ export default function Home() {
           </p>
           <div className="hero-cta">
             <ScrollToWorkButton />
-            <Link href="/writing" className="btn btn-ghost">Papers &amp; updates</Link>
+            <Link href="/notebook" className="btn btn-ghost">Notebook</Link>
           </div>
         </div>
       </section>

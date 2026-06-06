@@ -26,8 +26,8 @@ export default function PostPage({ params }: { params: { slug: string } }) {
   return (
     <main>
       <div className="container">
-        <Link href="/writing" className="back">
-          <ArrowLeft size={16} /> All writing
+        <Link href="/notebook" className="back">
+          <ArrowLeft size={16} /> Notebook
         </Link>
         <header className="article-head">
           <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
