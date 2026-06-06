@@ -42,8 +42,8 @@ export default function Home() {
               <Eyebrow>Selected work</Eyebrow>
               <h2 className="section-title">Research tools and civic tech</h2>
             </div>
-            <Link href="/writing" className="link-arrow">
-              All writing <ArrowRight size={16} />
+            <Link href="/work" className="link-arrow">
+              All projects <ArrowRight size={16} />
             </Link>
           </div>
           <div className="work-grid">

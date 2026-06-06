@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation'
 import Mark from './Mark'
 
 const LINKS = [
-  { href: '/', label: 'Work', match: (p: string) => p === '/' || p.startsWith('/work') },
+  { href: '/work', label: 'Work', match: (p: string) => p === '/' || p.startsWith('/work') },
   { href: '/writing', label: 'Writing', match: (p: string) => p.startsWith('/writing') },
   { href: '/about', label: 'About', match: (p: string) => p === '/about' },
 ]
