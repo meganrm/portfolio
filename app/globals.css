@@ -516,7 +516,6 @@ img { display: block; max-width: 100%; }
   .work-grid,
   .strip,
   .about-hero,
-  .detail-gallery,
   .cv { grid-template-columns: 1fr; }
   .nav-links { display: none; }
   .hero-molecule { display: none; }
