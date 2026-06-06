@@ -21,7 +21,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
   const post = POSTS.find((p) => p.id === params.slug)
   if (!post) notFound()
 
-  const imgTone = post.tag.tone === 'clay' ? 'clay' : 'teal'
+  const imgTone = post.tag.label === 'Fine Art' ? 'clay' : 'teal'
 
   return (
     <main>
@@ -31,7 +31,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
         </Link>
         <header className="article-head">
           <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
-            <Tag tone={post.tag.tone}>{post.tag.label}</Tag>
+            <Tag>{post.tag.label}</Tag>
             <span className="meta">{post.date} · {post.read}</span>
           </div>
           <h1 className="article-title">{post.title}</h1>

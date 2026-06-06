@@ -122,8 +122,8 @@ export default function AboutPage() {
           <div className="cv">
             <h6>Toolkit</h6>
             <div className="skillset">
-              {(['TypeScript', 'React', 'three.js', 'WebGL', 'D3', 'Python', 'Mapbox', 'R', 'Cinema 4D', 'UCSF Chimera', 'Oil paint', 'Illustration'] as const).map((s) => (
-                <Tag key={s} tone={['Oil paint', 'Illustration', 'Cinema 4D'].includes(s) ? 'clay' : 'teal'}>{s}</Tag>
+              {['TypeScript', 'React', 'three.js', 'WebGL', 'D3', 'Python', 'Mapbox', 'R', 'Cinema 4D', 'UCSF Chimera', 'Oil paint', 'Illustration'].map((s) => (
+                <Tag key={s}>{s}</Tag>
               ))}
             </div>
           </div>
@@ -131,13 +131,8 @@ export default function AboutPage() {
           <div className="cv">
             <h6>Focus areas</h6>
             <div className="skillset">
-              {([
-                ['Scientific Visualization', 'mustard'],
-                ['Research', 'teal'],
-                ['Civic Tech', 'sage'],
-                ['Fine Art', 'clay'],
-              ] as [string, 'mustard' | 'teal' | 'sage' | 'clay'][]).map(([label, tone]) => (
-                <Tag key={label} tone={tone}>{label}</Tag>
+              {['Scientific Visualization', 'Research', 'Civic Tech', 'Fine Art'].map((label) => (
+                <Tag key={label}>{label}</Tag>
               ))}
             </div>
           </div>

@@ -30,7 +30,7 @@ export default function WritingPage() {
                 <h3 className="ptitle">{post.title}</h3>
                 <p className="pexcerpt">{post.excerpt}</p>
               </div>
-              <Tag tone={post.tag.tone}>{post.tag.label}</Tag>
+              <Tag>{post.tag.label}</Tag>
             </Link>
           ))}
         </div>

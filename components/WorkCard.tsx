@@ -60,7 +60,7 @@ export default function WorkCard({ project }: { project: Project }) {
         <p className="wcard-blurb">{project.blurb}</p>
         <div className="wcard-tags">
           {project.tags.map((t) => (
-            <Tag key={t.label} tone={t.tone}>{t.label}</Tag>
+            <Tag key={t.label}>{t.label}</Tag>
           ))}
         </div>
       </div>

@@ -1,6 +1,5 @@
 export interface PostTag {
     label: string;
-    tone: "teal" | "mustard" | "clay" | "sage";
 }
 
 export interface Post {
@@ -23,7 +22,7 @@ export const POSTS: Post[] = [
         id: "integrated-intracellular-organization",
         date: "Jan 2023",
         read: "5 min read",
-        tag: { label: "Research", tone: "teal" },
+        tag: { label: "Research" },
         title: "A new mathematical framework for cellular organization",
         excerpt:
             "Our database of 200,000 cell images yields a new way to understand the interior design of human cells — published in Nature.",
@@ -38,7 +37,7 @@ export const POSTS: Post[] = [
         id: "simularium-publication",
         date: "Apr 2022",
         read: "4 min read",
-        tag: { label: "Sci-Vis", tone: "mustard" },
+        tag: { label: "Sci-Vis" },
         title: "Simularium: sharing biological simulations as easily as a link",
         excerpt:
             "Our paper in Nature Methods — an interactive web viewer for spatiotemporal biological models, built to remove the friction between simulation and collaboration.",
@@ -53,7 +52,7 @@ export const POSTS: Post[] = [
         id: "3d-meshes-threejs",
         date: "Apr 2018",
         read: "6 min read",
-        tag: { label: "Methods", tone: "teal" },
+        tag: { label: "Sci-Vis" },
         title: "Generating 3D meshes and ambient occlusion maps for three.js",
         excerpt:
             "A three-stage pipeline — UCSF Chimera, Cinema4D Python SDK, batch processing — for turning microscopy data into web-ready 3D assets.",
@@ -67,7 +66,7 @@ export const POSTS: Post[] = [
         id: "white-blood-cells",
         date: "Nov 2016",
         read: "4 min read",
-        tag: { label: "Research", tone: "teal" },
+        tag: { label: "Research" },
         title: "How do white blood cells move in 3D environments?",
         excerpt:
             "A research write-up and interview about our work on fast-moving immune cells — using lattice light sheet microscopy and custom visualization tools.",

@@ -272,6 +272,7 @@ img { display: block; max-width: 100%; }
 .tag-mustard { background: var(--mustard-100); color: var(--mustard-700); border-color: var(--mustard-300); }
 .tag-clay    { background: var(--clay-100);    color: var(--clay-500);    border-color: var(--clay-200); }
 .tag-sage    { background: var(--sage-100);    color: var(--sage-500);    border-color: var(--sage-200); }
+.tag-neutral { background: var(--cream-deep);  color: var(--ink-2);       border-color: var(--line-strong); }
 
 /* =====================================================================
    IMAGE PLACEHOLDER
