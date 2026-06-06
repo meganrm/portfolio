@@ -409,6 +409,9 @@ img { display: block; max-width: 100%; }
 }
 .detail-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 8px 0 0; }
 .detail-gallery .imgph { height: 280px; }
+
+.detail-prose-aside { display: grid; grid-template-columns: 1fr 260px; gap: 56px; align-items: start; }
+.detail-aside-img { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); }
 .next-project {
   border-top: 1px solid var(--line); padding: 40px 0 8px;
   display: flex; justify-content: space-between; align-items: center; text-decoration: none; color: inherit;
@@ -484,6 +487,7 @@ img { display: block; max-width: 100%; }
   .strip,
   .about-hero,
   .detail-gallery,
+  .detail-prose-aside,
   .cv { grid-template-columns: 1fr; }
   .nav-links { display: none; }
   .hero-molecule { display: none; }
@@ -524,9 +528,9 @@ img { display: block; max-width: 100%; }
   position: absolute; inset: 0;
   background: linear-gradient(
     to top,
-    rgba(var(--tone-rgb), 0.84) 0%,
-    rgba(var(--tone-rgb), 0.25) 44%,
-    transparent 68%
+    rgba(var(--tone-rgb), 0.92) 0%,
+    rgba(var(--tone-rgb), 0.55) 38%,
+    transparent 62%
   );
   z-index: 1;
   border-radius: var(--radius-lg);
@@ -543,35 +547,52 @@ img { display: block; max-width: 100%; }
   overflow: visible;
 }
 
-/* Individual dot — uses CSS custom props set via inline style */
+/* Individual dot — animates in on hover */
 .wcard-dot {
   position: absolute;
   border-radius: 50%;
-  border: 2px solid rgba(33, 30, 26, 0.15);
-  transition: transform 0.55s var(--ease-out);
+  opacity: 0;
+  transform: scale(0.3);
+  transition: opacity 0.35s var(--ease-out), transform 0.4s var(--ease-out);
 }
-/* Parallax: translate by --dx/--dy on card hover */
 .wcard:hover .wcard-dot {
-  transform: translate(var(--dx, 0px), var(--dy, 0px));
+  opacity: 1;
+  transform: scale(1) translate(var(--dx, 0px), var(--dy, 0px));
 }
+/* Stagger dot entrance */
+.wcard-dot:nth-child(1) { transition-delay: 0s; }
+.wcard-dot:nth-child(2) { transition-delay: 0.05s; }
+.wcard-dot:nth-child(3) { transition-delay: 0.10s; }
+.wcard-dot:nth-child(4) { transition-delay: 0.15s; }
+.wcard-dot:nth-child(5) { transition-delay: 0.08s; }
 
-/* Card body */
-.wcard-body { padding: 13px 2px 0; position: relative; z-index: 2; }
-.wcard-meta { font-family: var(--font-mono); font-size: 11px; color: var(--ink-2); letter-spacing: 0.01em; }
+/* Title + meta overlaid inside image */
+.wcard-overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 14px 14px 14px;
+  z-index: 2;
+}
+.wcard-meta { font-family: var(--font-mono); font-size: 10px; color: rgba(246,239,225,0.72); letter-spacing: 0.01em; margin-bottom: 3px; }
 .wcard-title {
-  font-family: var(--font-display); font-weight: 700; font-size: 20px;
-  letter-spacing: -0.02em; margin: 5px 0 3px; color: var(--fg);
+  font-family: var(--font-display); font-weight: 700; font-size: 18px;
+  letter-spacing: -0.02em; color: #fff; line-height: 1.2;
   display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap;
 }
-.wcard-blurb { font-size: 13px; color: var(--ink-2); line-height: 1.5; margin: 0; }
-.wcard-tags { display: flex; gap: 5px; margin-top: 9px; flex-wrap: wrap; }
+
+/* Tags below image — smaller, quieter than default .tag */
+.wcard-body { padding: 10px 2px 0; display: flex; gap: 4px; flex-wrap: wrap; }
+.wcard-body .tag {
+  font-size: 9px; padding: 2px 7px; border-radius: 4px; letter-spacing: 0.05em;
+  border-color: transparent;
+}
 
 /* Featured badge */
 .wcard-badge {
   font-family: var(--font-mono); font-size: 9px; text-transform: uppercase;
   letter-spacing: 0.08em; background: var(--mustard-400); color: var(--ink);
   padding: 2px 7px; border-radius: var(--radius-xs); white-space: nowrap;
-  font-weight: 600; flex-shrink: 0;
+  font-weight: 600; flex-shrink: 0; align-self: center;
 }
 
 /* No-image fallback — gradient from tone color */

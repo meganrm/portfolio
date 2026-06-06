@@ -60,8 +60,8 @@ export default function AboutPage() {
             <div>
               <div className="cv-entry">
                 <div>
-                  <div className="role">Visualization Scientist &amp; Software Engineer</div>
-                  <div className="org">Allen Institute for Cell Science</div>
+                  <div className="role">Senior Scientist</div>
+                  <div className="org">Allen Institute for Cell Science · Director: Graham Johnson</div>
                 </div>
                 <span className="yr">2016 — present</span>
               </div>
@@ -74,10 +74,17 @@ export default function AboutPage() {
               </div>
               <div className="cv-entry">
                 <div>
-                  <div className="role">Postdoctoral Researcher</div>
-                  <div className="org">UCSF · Mullins Cell Biology Lab</div>
+                  <div className="role">Postdoctoral Scholar</div>
+                  <div className="org">UCSF · Johnson Lab, Bioengineering and Therapeutic Sciences</div>
                 </div>
-                <span className="yr">2014 — 2016</span>
+                <span className="yr">2013 — 2016</span>
+              </div>
+              <div className="cv-entry">
+                <div>
+                  <div className="role">Research Technician</div>
+                  <div className="org">Burnham Institute · Pellecchia Lab, Infectious & Inflammatory Disease</div>
+                </div>
+                <span className="yr">2007 — 2008</span>
               </div>
             </div>
           </div>
@@ -88,15 +95,43 @@ export default function AboutPage() {
               <div className="cv-entry">
                 <div>
                   <div className="role">PhD, Chemistry &amp; Chemical Biology</div>
-                  <div className="org">University of California, San Francisco</div>
+                  <div className="org">University of California, San Francisco · Shokat Lab</div>
+                </div>
+                <span className="yr">2013</span>
+              </div>
+              <div className="cv-entry">
+                <div>
+                  <div className="role">BS Chemical Biology · BA Fine Art</div>
+                  <div className="org">University of California, Berkeley</div>
+                </div>
+                <span className="yr">2006</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="cv">
+            <h6>Awards &amp; fellowships</h6>
+            <div>
+              <div className="cv-entry">
+                <div>
+                  <div className="role">Mary Anne Koda-Kimble Seed Award for Innovation</div>
+                  <div className="org">UCSF</div>
                 </div>
                 <span className="yr">2014</span>
               </div>
               <div className="cv-entry">
                 <div>
-                  <div className="role">BS Chemical Biology · BA Art Practice</div>
-                  <div className="org">University of California, Berkeley</div>
+                  <div className="role">QB3 Research Fellowship</div>
+                  <div className="org">UCSF</div>
                 </div>
+                <span className="yr">2012 — 2013</span>
+              </div>
+              <div className="cv-entry">
+                <div>
+                  <div className="role">Regents and Chancellors Scholarship</div>
+                  <div className="org">UC Berkeley</div>
+                </div>
+                <span className="yr">2002 — 2006</span>
               </div>
             </div>
           </div>
@@ -114,6 +149,12 @@ export default function AboutPage() {
                 <div>
                   <div className="role">The Simularium Viewer: an interactive online tool for sharing spatiotemporal biological models</div>
                   <div className="org">Nature Methods, 2022</div>
+                </div>
+              </div>
+              <div className="cv-entry">
+                <div>
+                  <div className="role">A Crosslinker Based on a Tethered Electrophile for Mapping Kinase-Substrate Networks</div>
+                  <div className="org">Chemistry &amp; Biology, 2014 (cover article)</div>
                 </div>
               </div>
             </div>

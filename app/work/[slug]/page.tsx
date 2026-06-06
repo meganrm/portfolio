@@ -80,6 +80,30 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             ))}
           </div>
         </div>
+      ) : project.id === 'mutual-aid-hub' ? (
+        <div className="container">
+          <div className="detail-body prose-col">
+            <p className="lead">{project.lead}</p>
+          </div>
+          <div className="detail-prose-aside">
+            <div className="detail-body" style={{ paddingTop: 0 }}>
+              <p>{project.body1}</p>
+              <blockquote className="pullquote">{project.quote}</blockquote>
+              <p>{project.body2}</p>
+              <p>{project.body3}</p>
+            </div>
+            <div className="detail-aside-img">
+              <Image
+                src="/images/mutual-aid-hub.png"
+                alt="Mutual Aid Hub poster"
+                width={0}
+                height={0}
+                sizes="260px"
+                style={{ width: '100%', height: 'auto', display: 'block' }}
+              />
+            </div>
+          </div>
+        </div>
       ) : (
         <div className="container">
           <div className="detail-body prose-col">

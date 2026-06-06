@@ -4,15 +4,20 @@ import type { CSSProperties } from 'react'
 
 const DOT_COLORS = [
   '#E6A317', // mustard
+  '#F5CB6A', // mustard-light
+  '#A87200', // mustard-dark
   '#138A86', // teal
-  '#CB5A33', // clay
-  '#869A63', // sage
   '#79C7C0', // teal-light
-  '#FCF8F0', // cream-white
-  '#211E1A', // ink
+  '#0A5553', // teal-dark
+  '#CB5A33', // clay
+  '#EFA98A', // clay-light
+  '#8B3318', // clay-dark
+  '#869A63', // sage
+  '#C2CEA9', // sage-light
+  '#4E6030', // sage-dark
 ] as const
 
-const EDGES = ['top', 'bottom', 'left', 'right'] as const
+const EDGES = ['top', 'left', 'right'] as const
 type Edge = (typeof EDGES)[number]
 
 export interface DotConfig {
@@ -70,8 +75,6 @@ export function dotPositionStyle(dot: DotConfig): CSSProperties {
   switch (dot.edge) {
     case 'top':
       return { ...base, top: -r, left: `${dot.offset}%` }
-    case 'bottom':
-      return { ...base, top: `calc(220px - ${r}px)`, left: `${dot.offset}%` }
     case 'left':
       return { ...base, top: `${dot.offset}%`, left: -r }
     case 'right':
