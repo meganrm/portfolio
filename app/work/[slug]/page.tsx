@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { ArrowLeft, ArrowRight, ExternalLink } from 'lucide-react'
 import Eyebrow from '@/components/Eyebrow'
@@ -27,7 +28,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
   return (
     <main>
       <div className="container">
-        <Link href="/" className="back">
+        <Link href="/work" className="back">
           <ArrowLeft size={16} /> Back to work
         </Link>
         <header className="detail-head">
@@ -56,23 +57,48 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         <ProjectImage src={project.heroImage} alt={`${project.title} hero`} tone={project.tone} label={project.title} style={{ height: 460 }} />
       </div>
 
-      <div className="container">
-        <div className="detail-body prose-col">
-          <p className="lead">{project.lead}</p>
-          <p>{project.body1}</p>
-          <blockquote className="pullquote">{project.quote}</blockquote>
-          <p>{project.body2}</p>
+      {/* Body — gallery layout for portraits, prose layout for all others */}
+      {project.id === 'portraits' ? (
+        <div className="container">
+          <div className="detail-body prose-col" style={{ paddingBottom: 0 }}>
+            <p className="lead">{project.lead}</p>
+          </div>
+          <div className="art-gallery">
+            {[
+              { src: '/images/art-bruce.png',    alt: 'Bruce' },
+              { src: '/images/art-teddy.jpg',    alt: 'Teddy' },
+              { src: '/images/art-leslie.jpg',   alt: 'Leslie' },
+              { src: '/images/art-elenore.jpg',  alt: 'Elenore' },
+              { src: '/images/art-angelica.jpg', alt: 'Angelica' },
+              { src: '/images/art-paulo.jpg',    alt: 'Paulo' },
+              { src: '/images/art-warren.jpg',   alt: 'Elizabeth Warren' },
+              { src: '/images/art-img0036.jpg',  alt: 'Portrait' },
+            ].map(({ src, alt }) => (
+              <div key={src} className="art-gallery-item">
+                <Image src={src} alt={alt} fill style={{ objectFit: 'cover' }} />
+              </div>
+            ))}
+          </div>
         </div>
+      ) : (
+        <div className="container">
+          <div className="detail-body prose-col">
+            <p className="lead">{project.lead}</p>
+            <p>{project.body1}</p>
+            <blockquote className="pullquote">{project.quote}</blockquote>
+            <p>{project.body2}</p>
+          </div>
 
-        <div className="detail-gallery">
-          <ProjectImage src={project.processImage} alt={`${project.title} process`} tone={project.tone} label="Process" nodes={false} />
-          <ProjectImage src={project.detailImage} alt={`${project.title} detail`} tone={project.altTone} label="Detail" nodes={false} />
-        </div>
+          <div className="detail-gallery">
+            <ProjectImage src={project.processImage} alt={`${project.title} process`} tone={project.tone} label="Process" nodes={false} />
+            <ProjectImage src={project.detailImage} alt={`${project.title} detail`} tone={project.altTone} label="Detail" nodes={false} />
+          </div>
 
-        <div className="detail-body prose-col">
-          <p>{project.body3}</p>
+          <div className="detail-body prose-col">
+            <p>{project.body3}</p>
+          </div>
         </div>
-      </div>
+      )}
 
       <div className="container">
         <Link href={`/work/${next.id}`} className="next-project">
