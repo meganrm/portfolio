@@ -47,7 +47,7 @@ export default function Home() {
             </Link>
           </div>
           <div className="work-grid">
-            {PROJECTS.map((p) => (
+            {PROJECTS.filter((p) => p.featured).map((p) => (
               <Link key={p.id} href={`/work/${p.id}`} className="work-card">
                 <ProjectImage src={p.heroImage} alt={p.title} tone={p.tone} label={p.medium} />
                 <div className="work-card-body">
