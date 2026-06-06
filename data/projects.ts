@@ -24,9 +24,11 @@ export interface Project {
   heroImage?: string
   heroImagePosition?: string  // CSS object-position override, default 'center'
   cardImage?: string          // overrides heroImage on the work grid card only
+  screenshotImage?: string    // Template 1 right column; falls back to heroImage
   processImage?: string
   detailImage?: string
   featured?: boolean   // true for homepage-featured projects
+  pageTemplate: 'tool' | 'visual'   // determines which page template to render
 }
 
 export const PROJECTS: Project[] = [
@@ -51,8 +53,10 @@ export const PROJECTS: Project[] = [
     body2: 'I led the module design with Lyndsay Wilhelm (senior UX). Three principles drove the work: balance self-directed and guided experience so students can wander but don\'t get lost; keep agents visually simple so the lesson is about simulation versus measurement, not 3D rendering; and keep the surrounding text minimal so instructors can slot the module into existing lessons without rewriting their syllabus. Students progress through high-affinity, low-affinity, and competitive-binding scenarios — recording equilibrium concentrations and deriving Kd from the data themselves.',
     body3: 'The module is the first of a planned series. We\'re applying for grant funding to evaluate learning outcomes and are designing follow-up modules on membranes and on actin polymerization — both areas where the gap between molecular intuition and observable behavior is especially wide.',
     heroImage: '/images/binding-affinity-hero.png',
+    screenshotImage: '/images/binding-affinity-ui.png',
     processImage: '/images/binding-affinity-sim.png',
     detailImage: '/images/binding-affinity-ui.png',
+    pageTemplate: 'tool',
   },
   {
     id: 'cellpack',
@@ -76,8 +80,34 @@ export const PROJECTS: Project[] = [
     body3: 'cellPACK was funded by a QB3@UCSF Fellowship, the Mary Anne Koda-Kimble award, and Autodesk. Tom Goddard at the UCSF Resource for Biocomputing was integrating cellPACK into UCSF Chimera; that direction eventually grew into the Simularium project at the Allen Institute, where the cellPACK approach to mesoscale models met a web-native viewer.',
     heroImage: '/images/cellpack-mesoscale.png',
     processImage: '/images/cellpack-systems.png',
-    detailImage: '/images/cellpack-blood.png',
+    detailImage: '/images/mesoscale.png',
     featured: true,
+    pageTemplate: 'tool',
+  },
+  {
+    id: 'cell-migration-3d',
+    title: '3D Cell Migration',
+    year: '2014–2016',
+    medium: 'UCSF Chimera · Cinema 4D · Lattice light sheet',
+    role: 'Postdoctoral scholar',
+    context: 'Johnson Lab UCSF · Mullins Lab UCSF',
+    tone: 'clay',
+    altTone: 'sage',
+    blurb: 'Visualization, analysis, and 3D-printed museum exhibit for fast-moving white blood cells imaged by lattice light sheet microscopy.',
+    url: 'https://www.exploratorium.edu/visit/east-gallery/cell-motion',
+    tags: [
+      { label: 'Sci-Vis' },
+      { label: 'Research' },
+    ],
+    lead: 'White blood cells are some of the fastest-moving cells in the body, and lattice light sheet microscopy is one of the few tools that can record them in full 3D, live. The data is rich — 60 GB per cell — and almost unreadable as raw stacks. This was a project about turning that data into images you can think with, and eventually into an object you can put your hands on.',
+    body1: 'I worked in parallel between two UCSF labs: Graham Johnson\'s, where my appointment lived, and R. Dyche Mullins\', where Lillian Fritz-Laylin was running the cell migration experiments. The microscope was Eric Betzig and Bi-Chang Chen\'s lattice light sheet system; the cells were HL60s — a human promyelocytic-leukemia line that behaves like fast-moving neutrophils. Each acquisition produced a 4D dataset (3D volume × time) of a cell crawling either on glass or through a labeled or unlabeled collagen matrix.',
+    quote: 'A protrusion you can study is a protrusion you can name.',
+    body2: 'The Chimera vseries toolkit — built by Tom Goddard in Tom Ferrin\'s lab — was the backbone of the pipeline: aligning, normalizing, and compressing the volumes down from ~60 GB to ~6 GB while preserving surface detail. On top of that I built representations meant to make 4D data readable on a 2D page: tonally-shaded surface renders, Muybridge-style frame strips at fixed time intervals, and time-coded composites where each protrusion phase reads as a different color in a single integrated figure. Looking at the cells this way let us define a previously unnamed protrusion type — "rosettes" — and characterize how cells switch protrusion modes between flat and 3D environments.',
+    body3: 'The work was covered in UCSF\'s Science Focus series, and the 3D-printed cell models became the basis for an Exploratorium exhibit, A Cell in Motion, in Gallery 4: Living Systems. Visitors turn a hand crank to move a cell through time — a tactile version of the same dataset that produced the figures in the paper. Whole-cell visualization wasn\'t separate from the science; it was how we noticed that the protrusions were doing environmental interrogation, not directly driving motion.',
+    heroImage: '/images/wbc-postdoc.png',
+    processImage: '/images/wbc-motion.png',
+    detailImage: '/images/exploratorium-exhibit.png',
+    pageTemplate: 'visual',
   },
   {
     id: 'simularium',
@@ -100,9 +130,11 @@ export const PROJECTS: Project[] = [
     body2: 'Simularium was built as a common viewer for that ecosystem. The project defines an open file format that simulations from diverse tools can export to, and a web viewer that renders them interactively — step through time, filter agents, change visual encoding, plot quantities alongside the 3D scene. I worked across the full visualization stack: designing the 3D rendering pipeline, building the UI, and collaborating on the file format spec. The viewer handles models ranging from molecular dynamics to whole-cell agent-based simulations, and the published trajectories range from clathrin-mediated endocytosis to biomolecular condensate buffering work in eLife.',
     body3: 'Simularium was published in Nature Methods in 2022. Beyond researcher-to-researcher use, it became the substrate for the Binding Affinity education module — the first of a planned series of interactive simulation lessons. The long-term goal Graham Johnson and I have talked about for years sits behind all of this: a completely virtual cell that anyone with a browser can step into and explore.',
     heroImage: '/images/simularium.gif',
+    screenshotImage: '/images/simularium-viewer.png',
     processImage: '/images/simularium-viewer.png',
-    detailImage: '/images/virtual-cell-goal.png',
+    detailImage: '/images/modeling-ecosystem.png',
     featured: true,
+    pageTemplate: 'tool',
   },
   {
     id: 'town-hall-project',
@@ -127,6 +159,7 @@ export const PROJECTS: Project[] = [
     heroImage: '/images/town-hall.png',
     processImage: '/images/indivisible.png',
     featured: true,
+    pageTemplate: 'tool',
   },
   {
     id: 'cell-feature-explorer',
@@ -152,6 +185,7 @@ export const PROJECTS: Project[] = [
     processImage: '/images/mitochondria.png',
     detailImage: '/images/cell-motion.gif',
     featured: true,
+    pageTemplate: 'tool',
   },
   {
     id: 'mutual-aid-hub',
@@ -175,29 +209,10 @@ export const PROJECTS: Project[] = [
     body3: 'Beyond the map, we saw a second need: many communities didn\'t have a network yet. We organized events connecting people who wanted to start one with others in their area, turning the tool from a directory into a community-building platform.',
     heroImage: '/images/mutual-aid-hub-map.png',
     cardImage: '/images/mutual-aid-hub-banner.png',
+    screenshotImage: '/images/mutual-aid-hub-map.png',
     processImage: '/images/mutual-aid-hub.png',
     featured: true,
-  },
-  {
-    id: '3d-cell-viewer',
-    title: '3D Cell Viewer',
-    year: '2017',
-    medium: 'WebGL · three.js',
-    role: 'Software engineer',
-    context: 'Allen Institute for Cell Science',
-    tone: 'teal',
-    altTone: 'mustard',
-    blurb: 'The first web tool to render Allen Institute cell data in 3D — directly in the browser.',
-    url: 'https://www.allencell.org',
-    tags: [{ label: 'Sci-Vis' }],
-    lead: 'Before the 3D Cell Viewer, exploring Allen Institute cell data meant downloading large files and running specialized software. We built a browser-based viewer so researchers could share a cell with a link.',
-    body1: 'I built the original 3D Cell Viewer in collaboration with Daniel Toloudis, under the supervision of Graham Johnson. The core challenge was performance: rendering full volumetric cell data in WebGL at interactive frame rates, in a browser tab, on hardware researchers actually had.',
-    quote: 'The browser is the best distribution channel science has ever had.',
-    body2: 'We used three.js as the rendering foundation and built a custom pipeline for loading and rendering the multi-channel fluorescence data the Allen Institute produces. The viewer shipped as the primary interface for allencell.org and was the foundation for everything that came after.',
-    body3: 'The 3D Cell Viewer was one of the first projects to demonstrate that research-grade cell visualization belonged in the browser. It established the architecture — and the ambition — that later became the Cell Feature Explorer and Simularium.',
-    heroImage: '/images/cell-motion.gif',
-    processImage: '/images/mitochondria.png',
-    detailImage: '/images/cell-feature-explorer.png',
+    pageTemplate: 'tool',
   },
   {
     id: 'imsc',
@@ -220,28 +235,11 @@ export const PROJECTS: Project[] = [
     body3: 'The Explore in 3D viewer lets readers toggle structure channels on and off, switch between mitotic stages, and adjust density, masking, clipping, and lighting in real time. The observations layer surfaces specific scientific findings the integrated view made visible — for instance, that lamin B1 associates with the peripheral ER during interphase and with the ER more broadly during mitosis, and that the Golgi fragments and disassembles before division and reassembles after. IMSC was an early test of what scientific publishing looks like when the data itself is the medium.',
     url: 'https://imsc.allencell.org',
     heroImage: '/videos/imsc-rotating.mp4',
-    cardImage: '/images/imsc-hero.jpg',
+    cardImage: '/images/mitochondria.png',
+    screenshotImage: '/images/mitosis.gif',
     processImage: '/videos/imsc-mitosis-stages.mp4',
     detailImage: '/images/imsc-essay.jpg',
-  },
-  {
-    id: 'visual-guide-stem-cells',
-    title: 'Visual Guide to Human Stem Cells',
-    year: '2015',
-    medium: 'WebGL · Illustration',
-    role: 'Visualization engineer',
-    context: 'Allen Institute for Cell Science',
-    tone: 'sage',
-    altTone: 'teal',
-    blurb: 'An interactive introduction to human induced pluripotent stem cells for general audiences.',
-    tags: [{ label: 'Sci-Vis' }],
-    lead: 'The Visual Guide to Human Stem Cells was built to make one of the most important — and most misunderstood — biological systems legible to a general audience.',
-    body1: 'Human induced pluripotent stem cells are scientifically remarkable and publicly controversial, often poorly explained. The Visual Guide was built to close that gap: an interactive, illustrated introduction that respected the science without requiring a biology degree to follow.',
-    quote: 'Making the invisible legible is not simplification — it\'s translation.',
-    body2: 'I built the interactive 3D elements using WebGL and worked with illustrators on the visual language — a balance between scientific accuracy and the kind of clarity that makes a diagram worth studying. The result was used in public communications and education contexts.',
-    body3: 'The project sharpened my thinking about the difference between visualization for researchers and visualization for the public. The constraints are different, but the core challenge is the same: what do you show, what do you leave out, and how do you earn the viewer\'s trust.',
-    heroImage: '/images/sci-viz-banner.png',
-    processImage: '/images/mitochondria.png',
+    pageTemplate: 'tool',
   },
   {
     id: 'hbv-animation',
@@ -263,6 +261,7 @@ export const PROJECTS: Project[] = [
     cardImage: '/images/hbv-virus-hero.jpg',
     processImage: '/videos/hbv-cccdna-cycle.mp4',
     detailImage: '/images/hbv-lifecycle.jpg',
+    pageTemplate: 'visual',
   },
   {
     id: 'crispr-cover',
@@ -282,6 +281,7 @@ export const PROJECTS: Project[] = [
     body3: 'The cover was part of a broader collaboration with Jennifer Doudna\'s lab at UC Berkeley. Working at the intersection of research communication and visual design — where the audience is both the specialist and the general reader — is where I find the most interesting problems.',
     heroImage: '/images/crispr-cover.jpg',
     processImage: '/images/mucus-viz.png',
+    pageTemplate: 'visual',
   },
   {
     id: 'trapping-kinases',
@@ -303,6 +303,7 @@ export const PROJECTS: Project[] = [
     heroImage: '/images/chem-biol-cover.png',
     processImage: '/images/kinase-mechanism-detail.png',
     detailImage: '/images/kinases-mechanism.png',
+    pageTemplate: 'visual',
   },
   {
     id: 'ldl-hdl-models',
@@ -323,6 +324,7 @@ export const PROJECTS: Project[] = [
     heroImage: '/images/ldl-particles.png',
     processImage: '/images/apob-model.png',
     detailImage: '/images/sci-viz-banner.png',
+    pageTemplate: 'visual',
   },
   {
     id: 'indivisible',
@@ -343,6 +345,7 @@ export const PROJECTS: Project[] = [
     body3: 'The Indivisible Map was the direct predecessor to the Town Hall Project\'s mapping work. The patterns I developed here — performant clustering, mobile-first interaction design, live data integration — became the foundation for how I approached civic mapping projects going forward.',
     heroImage: '/images/indivisible.png',
     processImage: '/images/town-hall.png',
+    pageTemplate: 'tool',
   },
   {
     id: 'portraits',
@@ -363,5 +366,6 @@ export const PROJECTS: Project[] = [
     heroImage: '/images/painting-main.jpg',
     processImage: '/images/art-teddy.jpg',
     detailImage: '/images/art-leslie.jpg',
+    pageTemplate: 'visual',
   },
 ]
