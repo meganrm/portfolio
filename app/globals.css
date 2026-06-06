@@ -398,20 +398,50 @@ img { display: block; max-width: 100%; }
   letter-spacing: 0.08em; color: var(--ink-3); margin: 0 0 5px;
 }
 .detail-metarow .col p { margin: 0; font-size: 15px; font-weight: 500; }
-.detail-hero .imgph { height: 460px; }
-.detail-body { padding: 56px 0; }
-.detail-body p { font-size: 18px; line-height: 1.72; color: var(--ink); margin: 0 0 24px; }
-.detail-body p.lead { font-size: 21px; color: var(--ink-2); }
+
+/* ── Detail lead paragraph ────────────────────────────────────────────── */
+.detail-lead { font-size: 21px; line-height: 1.62; color: var(--ink-2); margin: 16px 0 0; }
+
+/* ── Natural-ratio image — no crop, no radius ─────────────────────────── */
+.detail-img { width: 100%; height: auto; display: block; border-radius: 0; }
+
+/* ── Template 1: atmospheric banner ──────────────────────────────────── */
+.detail-banner { height: 220px; overflow: hidden; position: relative; }
+.detail-banner .detail-img { height: 100%; object-fit: cover; filter: brightness(0.5) saturate(0.7); }
+.detail-banner video {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  filter: brightness(0.5) saturate(0.7);
+}
+
+/* ── Template 1: two-column intro ────────────────────────────────────── */
+.detail-intro {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 56px; padding: 32px 0 0; align-items: start;
+}
+.detail-intro-screenshot .detail-img { outline: 1px solid var(--line); }
+
+/* ── Both templates: alternating body rows ───────────────────────────── */
+.detail-section {
+  display: flex; gap: 48px; padding: 40px 0;
+  border-top: 1px solid var(--line); align-items: start;
+}
+.detail-section > * { flex: 1; min-width: 0; }
+.detail-section--flip { flex-direction: row-reverse; }
+.detail-section-text p { font-size: 18px; line-height: 1.72; color: var(--ink); margin: 0; }
+
+/* ── Both templates: full-width closing paragraph ────────────────────── */
+.detail-closing { max-width: 760px; padding: 40px 0; border-top: 1px solid var(--line); }
+.detail-closing p { font-size: 18px; line-height: 1.72; color: var(--ink); margin: 0; }
+
+/* ── Template 2: full-bleed hero at natural ratio ────────────────────── */
+.detail-hero-natural { width: 100%; }
+.detail-hero-natural .detail-img { width: 100%; }
+
 .pullquote {
   font-family: var(--font-serif); font-style: italic; font-size: 32px; line-height: 1.25;
   color: var(--teal-500); margin: 40px 0; padding-left: 24px;
   border-left: 3px solid var(--mustard-400); text-wrap: balance;
 }
-.detail-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 8px 0 0; }
-.detail-gallery .imgph { height: 280px; }
-
-.detail-prose-aside { display: grid; grid-template-columns: 1fr 260px; gap: 56px; align-items: start; }
-.detail-aside-img { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); }
 .next-project {
   border-top: 1px solid var(--line); padding: 40px 0 8px;
   display: flex; justify-content: space-between; align-items: center; text-decoration: none; color: inherit;
@@ -487,12 +517,15 @@ img { display: block; max-width: 100%; }
   .strip,
   .about-hero,
   .detail-gallery,
-  .detail-prose-aside,
   .cv { grid-template-columns: 1fr; }
   .nav-links { display: none; }
   .hero-molecule { display: none; }
   .post-row { grid-template-columns: 1fr; gap: 8px; }
   .footer-cols { flex-direction: column; gap: 32px; }
+  .detail-banner { height: 140px; }
+  .detail-intro { grid-template-columns: 1fr; gap: 24px; }
+  .detail-section { flex-direction: column; gap: 24px; }
+  .detail-section--flip { flex-direction: column; }
 }
 
 @media (prefers-reduced-motion: reduce) {
