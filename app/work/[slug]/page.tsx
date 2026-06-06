@@ -20,7 +20,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 const VIDEO_EXT = /\.(mp4|webm|mov)$/i
 
 /** Renders a still image or video at natural aspect ratio — no crop, no border-radius. */
-function BodyImage({ src, alt }: { src: string; alt: string }) {
+function BodyImage({ src, alt, sizes = '(max-width: 860px) 100vw, 50vw' }: {
+  src: string; alt: string; sizes?: string
+}) {
   if (VIDEO_EXT.test(src)) {
     return (
       <video
@@ -41,7 +43,7 @@ function BodyImage({ src, alt }: { src: string; alt: string }) {
       alt={alt}
       width={0}
       height={0}
-      sizes="(max-width: 860px) 100vw, 50vw"
+      sizes={sizes}
       className="detail-img"
       style={{ width: '100%', height: 'auto' }}
       unoptimized={/\.(gif)$/i.test(src)}
@@ -90,7 +92,7 @@ function ProjectBody({ project }: { project: Project }) {
         <div className="detail-closing"><p>{project.body1}</p></div>
       )}
 
-      <blockquote className="pullquote">{project.quote}</blockquote>
+      {project.quote && <blockquote className="pullquote">{project.quote}</blockquote>}
 
       {project.detailImage ? (
         <div className="detail-section detail-section--flip">
@@ -101,7 +103,7 @@ function ProjectBody({ project }: { project: Project }) {
         <div className="detail-closing"><p>{project.body2}</p></div>
       )}
 
-      <div className="detail-closing"><p>{project.body3}</p></div>
+      {project.body3 && <div className="detail-closing"><p>{project.body3}</p></div>}
     </>
   )
 }
@@ -182,12 +184,12 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             <ArrowLeft size={16} /> Back to work
           </Link>
           <div className="detail-intro">
-            <div>
+            <header>
               <Eyebrow dot>{project.tags.map((t) => t.label).join(' · ')}</Eyebrow>
               <h1 className="detail-title">{project.title}</h1>
               <MetaRow project={project} />
               <p className="detail-lead">{project.lead}</p>
-            </div>
+            </header>
             {screenshotSrc && (
               <div className="detail-intro-screenshot">
                 <BodyImage src={screenshotSrc} alt={`${project.title} screenshot`} />
@@ -220,7 +222,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
 
       {project.heroImage && (
         <div className="detail-hero-natural">
-          <BodyImage src={project.heroImage} alt={project.title} />
+          <BodyImage src={project.heroImage} alt={project.title} sizes="100vw" />
         </div>
       )}
 
