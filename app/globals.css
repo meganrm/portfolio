@@ -416,8 +416,9 @@ img { display: block; max-width: 100%; }
 /* ── Template 1: two-column intro ────────────────────────────────────── */
 .detail-intro {
   display: grid; grid-template-columns: 1fr 1fr;
-  gap: 56px; padding: 32px 0 0; align-items: start;
+  gap: 56px; padding: 32px 0; align-items: start;
 }
+/* Screenshot column — hairline border distinguishes UI from background */
 .detail-intro-screenshot .detail-img { outline: 1px solid var(--line); }
 
 /* ── Both templates: alternating body rows ───────────────────────────── */
@@ -435,7 +436,6 @@ img { display: block; max-width: 100%; }
 
 /* ── Template 2: full-bleed hero at natural ratio ────────────────────── */
 .detail-hero-natural { width: 100%; }
-.detail-hero-natural .detail-img { width: 100%; }
 
 .pullquote {
   font-family: var(--font-serif); font-style: italic; font-size: 32px; line-height: 1.25;
