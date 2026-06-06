@@ -5,7 +5,7 @@ import Tag from '@/components/Tag'
 import { POSTS } from '@/data/posts'
 
 export const metadata: Metadata = {
-  title: 'Writing — Megan Riel-Mehan',
+  title: 'Papers & updates — Megan Riel-Mehan',
 }
 
 export default function WritingPage() {
@@ -13,12 +13,12 @@ export default function WritingPage() {
     <main>
       <div className="container">
         <header className="writing-head">
-          <Eyebrow dot>Writing &amp; notes</Eyebrow>
+          <Eyebrow dot>Papers &amp; updates</Eyebrow>
           <h1 className="detail-title" style={{ fontSize: 'clamp(38px,5vw,60px)' }}>
-            Publications, research notes, and methods
+            Papers &amp; updates
           </h1>
           <p className="hero-lead" style={{ marginTop: 20 }}>
-            Write-ups on visualization work, scientific findings, and the technical notes I wish I&rsquo;d had.
+            Publication write-ups, research updates, and technical notes.
           </p>
         </header>
 
