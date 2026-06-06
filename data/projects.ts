@@ -52,7 +52,6 @@ export const PROJECTS: Project[] = [
     heroImage: '/images/binding-affinity-hero.png',
     processImage: '/images/binding-affinity-sim.png',
     detailImage: '/images/binding-affinity-ui.png',
-    featured: true,
   },
   {
     id: 'simularium',
