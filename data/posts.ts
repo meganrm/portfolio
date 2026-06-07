@@ -15,6 +15,7 @@ export interface Post {
     body2: string;
     body3: string;
     url?: string;
+    coverImage?: string;
 }
 
 export const POSTS: Post[] = [
@@ -46,7 +47,7 @@ export const POSTS: Post[] = [
         body1: "The Allen Institute for Cell Science maintains a library of CRISPR-edited human iPS cell lines, each with one endogenous fluorescent tag: TUBA1B for microtubules, LMNB1 for the nuclear envelope, SEC61B for ER, TOMM20 for mitochondria, ST6GAL1 for Golgi, and so on through fifteen structures. Each line is a window onto one component. The IMSC project asked: what if we combined those windows into a single composite view, with each structure shown at the same moment in the cell cycle, in the same coordinate frame? The answer was a visual essay and an interactive 3D viewer — published at imsc.allencell.org — where readers can toggle channels on and off, switch between mitotic phases, and explore the integrated cell themselves.",
         h1: "Aligning by DNA",
         body2: "The technical trick was a small one with a big payoff. Each cell line was imaged in random states of the cell cycle, but every line was also DNA-stained, so we could classify each cell into one of eight mitotic phases (M0 through M7, from interphase through anaphase-cytokinesis) by the shape and texture of its DNA. Then, because DNA was a shared landmark across all the lines, we could align cells across lines by DNA position and superimpose the segmented structures phase by phase. The result is a synthesis: at each stage of mitosis you can pull up an integrated cell showing every channel in correct spatial relationship to every other channel.",
-        body3: "We presented the work in three contexts over the course of 2019: a poster at the Gordon Research Conference in the summer, a co-presentation with Chris at the Allen Cell Science Symposium, and a review for the Allen Institute Scientific Advisory Board. The most useful response came from the SAB meeting: the early prototype let scientists see their own data more clearly than the traditional software they used to inspect it, and the visualization feedback ended up improving the underlying model. That loop — visualization driving science driving visualization — was the through-line of the talk I gave a year later. The IMSC team: Thao Do, Caroline Hookway, Gabe Medrash, Lisa Schaefbauer, Dan Toloudis, Matheus Viana, Susanne Rafelski, Graham Johnson, and me.",
+        body3: "We presented the work in three contexts over the course of 2019: a poster at the Gordon Research Conference on Visualization in Science & Education in the summer, a co-presentation with Chris Frink (Allen Institute) at the Allen Cell Science Symposium, and a review at the Allen Institute Scientific Advisory Board meeting. The most useful response came from the SAB: scientists could see their own data through the early prototype more clearly than through the traditional software they were using, and the conversations that followed sharpened how we framed the integrated view. That loop — visualization driving science driving visualization — was the through-line of the talk I gave a year later. The IMSC team: Thao Do, Caroline Hookway, Gabe Medrash, Lisa Schaefbauer, Dan Toloudis, Matheus Viana, Susanne Rafelski, Graham Johnson, and me.",
     },
     {
         id: "simularium-publication",
@@ -76,6 +77,7 @@ export const POSTS: Post[] = [
         h1: "Tools as translators",
         body2: "What the four projects share is that each is a translation tool. The cross-linker translates a phosphoprotein into the kinase that modified it. sigViz translates a signaling network into something biologists without a programming background can map and animate. The cell migration work translates 60 GB of 4D microscopy into 2D images you can publish and a 3D-printed exhibit you can crank. cellPACK translates concentrations, structures, and ultrastructure into stochastic 3D models of cellular environments.",
         body3: "The phrase I keep coming back to, from the Chemistry & Biology cover of my dissertation work in 2014, is bringing something into focus. Each of these tools is a way of focusing some part of biology that wasn't legible before. The visualization scientist's bet is that this is a discipline of its own — that there's craft and method in building the bridge, and that the bridge is what most current science is missing.",
+        coverImage: "/images/data-to-knowledge.png",
     },
     {
         id: "motion-in-static-images",
@@ -90,6 +92,7 @@ export const POSTS: Post[] = [
         h1: "What I borrowed",
         body2: "For the HL60 migrating-cell work in the Mullins lab, I tried three encodings. First: classical frame strips at 18.8-second intervals — the Muybridge solution — for cell shape over time. Second: time-coded volumetric overlays where each color represents a 4-second window of protrusion activity, so an entire 16-second cycle of cell extension reads as a single Duchamp-like figure. Third: 3D-printed cells from the volumetric data, mounted on a hand crank for the Exploratorium so visitors could turn the time axis themselves. Each one trades different things: legibility for completeness, single-glance reading for full reconstruction.",
         body3: "The lesson is that the visualization problem for live cell imaging isn't a software problem — Chimera, Imaris, FIJI all render 4D fine. It's a representational problem, and there's a long lineage of solutions outside biology that I think we under-borrow from. The image you can hold in your head matters more than the volume rendering you can rotate.",
+        coverImage: "/images/motion-muybridge.png",
     },
     {
         id: "3d-meshes-threejs",
@@ -119,6 +122,7 @@ export const POSTS: Post[] = [
         h1: "Communicating motion in static images",
         body2: "The visualization challenge was turning four-dimensional data into something a biologist could interpret quickly — and that meant solving a much older problem. Muybridge's galloping horse, cave drawings of running bison, Duchamp's Nude Descending a Staircase: people have been trying to compress motion into static images for a very long time. I borrowed from that lineage. I rendered the cells with tonal shading and surface topology cues, and built time-coded composites — color-mapped protrusions across a 16-second window, frame strips at 18.8-second intervals — that made it possible to read protrusion dynamics at a glance: where the cell was extending, where it was retracting, how the whole structure was coordinating.",
         body3: "The work was covered as part of UCSF's Science Focus series, and the cell models eventually became the basis for an Exploratorium exhibit, A Cell in Motion, in Gallery 4: Living Systems — 3D-printed cells from the lattice light sheet data, mounted on a hand crank visitors could turn. The broader scientific finding was that these cells use protrusions primarily for environmental interrogation — sensing the spatial and chemical composition of their surroundings — rather than directly for locomotion. A distinction that only becomes visible when you can watch the whole 3D cell in motion.",
+        coverImage: "/images/hl60-rosettes.png",
     },
     {
         id: "crosslinker-into-focus",
@@ -134,5 +138,6 @@ export const POSTS: Post[] = [
         h1: "The metaphor",
         body2: "What I keep thinking about, two weeks after the paper came out, is the cover line. \"Bringing kinase-substrate pairs into focus\" describes what this cross-linker does. But it also describes what makes a tool worth building, in general. Most of biology — at the scale where I work — is invisible by default. The interactions are too fast, too crowded, too small, or too rare to resolve. The job of the tool, whether it's chemistry or microscopy or molecular illustration, is to bring one specific thing into focus so it can be studied.",
         body3: "I'm finishing the dissertation now and starting to think about what comes next. Whatever it is, I want it to keep that property. Build the lens. Bring the thing into focus. Then let other people use the focus to learn something I couldn't have predicted.",
+        coverImage: "/images/chem-biol-cover.png",
     },
 ];
