@@ -179,14 +179,14 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           </div>
           <div className="art-gallery">
             {[
-              { src: '/images/art-bruce.png',    alt: 'Bruce' },
-              { src: '/images/art-teddy.jpg',    alt: 'Teddy' },
-              { src: '/images/art-leslie.jpg',   alt: 'Leslie' },
-              { src: '/images/art-elenore.jpg',  alt: 'Elenore' },
-              { src: '/images/art-angelica.jpg', alt: 'Angelica' },
-              { src: '/images/art-paulo.jpg',    alt: 'Paulo' },
-              { src: '/images/art-warren.jpg',   alt: 'Elizabeth Warren' },
-              { src: '/images/art-img0036.jpg',  alt: 'Portrait' },
+              { src: '/images/projects/portraits/bruce.png',    alt: 'Bruce' },
+              { src: '/images/projects/portraits/teddy.jpg',    alt: 'Teddy' },
+              { src: '/images/projects/portraits/leslie.jpg',   alt: 'Leslie' },
+              { src: '/images/projects/portraits/elenore.jpg',  alt: 'Elenore' },
+              { src: '/images/projects/portraits/angelica.jpg', alt: 'Angelica' },
+              { src: '/images/projects/portraits/paulo.jpg',    alt: 'Paulo' },
+              { src: '/images/projects/portraits/warren.jpg',   alt: 'Elizabeth Warren' },
+              { src: '/images/projects/portraits/img0036.jpg',  alt: 'Portrait' },
             ].map(({ src, alt }) => (
               <div key={src} className="art-gallery-item">
                 <Image src={src} alt={alt} fill style={{ objectFit: 'cover', borderRadius: 0 }} />
