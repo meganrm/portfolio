@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ArrowLeft, ExternalLink } from 'lucide-react'
@@ -46,7 +47,20 @@ export default function PostPage({ params }: { params: { slug: string } }) {
       </div>
 
       <div className="container article-hero">
-        <ImagePlaceholder tone={imgTone} label="Cover" />
+        {post.coverImage ? (
+          <div className="imgph" style={{ position: 'relative', aspectRatio: '16 / 9' }}>
+            <Image
+              src={post.coverImage}
+              alt={`${post.title} cover`}
+              fill
+              sizes="(max-width: 860px) 100vw, 860px"
+              style={{ objectFit: 'cover' }}
+              unoptimized={post.coverImage.endsWith('.gif')}
+            />
+          </div>
+        ) : (
+          <ImagePlaceholder tone={imgTone} label="Cover" />
+        )}
       </div>
 
       <div className="container">
