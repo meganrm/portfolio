@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { ArrowLeft, ArrowRight, ExternalLink } from 'lucide-react'
 import Eyebrow from '@/components/Eyebrow'
-import { PROJECTS } from '@/data/projects'
+import { PROJECTS } from '@/lib/content'
 import type { Project } from '@/data/projects'
 import type { Metadata } from 'next'
 
@@ -108,6 +108,52 @@ function ProjectBody({ project }: { project: Project }) {
   )
 }
 
+/**
+ * Sectioned body for projects with `sections` defined.
+ * Renders an inline TOC at top with anchor links, then each section with
+ * its anchor id, heading, paragraphs, and optional image (alternating sides).
+ */
+function ProjectSections({ project }: { project: Project }) {
+  if (!project.sections?.length) return null
+  return (
+    <>
+      <nav className="detail-toc" aria-label="On this page">
+        <h6>On this page</h6>
+        <ol>
+          {project.sections.map((s) => (
+            <li key={s.id}><a href={`#${s.id}`}>{s.title}</a></li>
+          ))}
+        </ol>
+      </nav>
+      {project.sections.map((s, i) => {
+        const flip = i % 2 === 1
+        if (s.image) {
+          return (
+            <section
+              key={s.id}
+              id={s.id}
+              className={`detail-section${flip ? ' detail-section--flip' : ''}`}
+            >
+              {flip && <div><BodyImage src={s.image} alt={s.imageAlt ?? `${s.title} — illustration`} /></div>}
+              <div className="detail-section-text">
+                <h2 className="section-heading">{s.title}</h2>
+                {s.content.map((p, j) => <p key={j}>{p}</p>)}
+              </div>
+              {!flip && <div><BodyImage src={s.image} alt={s.imageAlt ?? `${s.title} — illustration`} /></div>}
+            </section>
+          )
+        }
+        return (
+          <section key={s.id} id={s.id} className="detail-closing">
+            <h2 className="section-heading">{s.title}</h2>
+            {s.content.map((p, j) => <p key={j}>{p}</p>)}
+          </section>
+        )
+      })}
+    </>
+  )
+}
+
 export default function ProjectPage({ params }: { params: { slug: string } }) {
   const project = PROJECTS.find((p) => p.id === params.slug)
   if (!project) notFound()
@@ -197,7 +243,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             )}
           </div>
 
-          <ProjectBody project={project} />
+          {project.sections?.length ? <ProjectSections project={project} /> : <ProjectBody project={project} />}
 
           <Link href={`/work/${next.id}`} className="next-project">
             <div>

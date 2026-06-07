@@ -2,10 +2,9 @@ import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import Eyebrow from '@/components/Eyebrow'
 import Molecule from '@/components/Molecule'
-import ProjectImage from '@/components/ProjectImage'
-import Tag from '@/components/Tag'
+import WorkCard from '@/components/WorkCard'
 import ScrollToWorkButton from '@/components/ScrollToWorkButton'
-import { PROJECTS } from '@/data/projects'
+import { PROJECTS } from '@/lib/content'
 
 export default function Home() {
   return (
@@ -48,19 +47,7 @@ export default function Home() {
           </div>
           <div className="work-grid">
             {PROJECTS.filter((p) => p.featured).map((p) => (
-              <Link key={p.id} href={`/work/${p.id}`} className="work-card">
-                <ProjectImage src={p.heroImage} alt={p.title} tone={p.tone} label={p.medium} />
-                <div className="work-card-body">
-                  <div className="meta">{p.year} — {p.medium}</div>
-                  <h3 className="work-card-title">{p.title}</h3>
-                  <p className="work-card-desc">{p.blurb}</p>
-                  <div className="work-card-tags">
-                    {p.tags.map((t) => (
-                      <Tag key={t.label}>{t.label}</Tag>
-                    ))}
-                  </div>
-                </div>
-              </Link>
+              <WorkCard key={p.id} project={p} />
             ))}
           </div>
         </div>

@@ -2,7 +2,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import Eyebrow from '@/components/Eyebrow'
 import Tag from '@/components/Tag'
-import { POSTS } from '@/data/posts'
+import { POSTS } from '@/lib/content'
 
 export const metadata: Metadata = {
   title: 'Notebook — Megan Riel-Mehan',

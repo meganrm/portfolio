@@ -1,4 +1,4 @@
-import { PROJECTS } from '@/data/projects'
+import { PROJECTS } from '@/lib/content'
 import WorkGrid from './WorkGrid'
 
 const SORTED = [

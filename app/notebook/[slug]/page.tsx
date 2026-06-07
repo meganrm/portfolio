@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import Tag from "@/components/Tag";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
-import { POSTS } from "@/data/posts";
+import { POSTS } from "@/lib/content";
 import type { Metadata } from "next";
 
 export function generateStaticParams() {

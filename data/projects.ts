@@ -1,371 +1,41 @@
-export type Tone = 'teal' | 'mustard' | 'clay' | 'sage' | 'ink'
+export type Tone = "teal" | "mustard" | "clay" | "sage" | "ink";
 
 export interface ProjectTag {
-  label: string
+    label: string;
+}
+
+export interface ProjectSection {
+    id: string; // URL anchor (kebab-case)
+    title: string; // visible heading
+    content: string[]; // body paragraphs
+    image?: string; // optional accompanying image/video (right column)
+    imageAlt?: string; // alt text for image
 }
 
 export interface Project {
-  id: string
-  title: string
-  year: string
-  medium: string
-  role: string
-  context: string
-  tone: Tone
-  altTone: Tone
-  blurb: string
-  tags: ProjectTag[]
-  lead: string
-  body1: string
-  quote: string
-  body2: string
-  body3: string
-  url?: string
-  heroImage?: string
-  heroImagePosition?: string  // CSS object-position override, default 'center'
-  cardImage?: string          // overrides heroImage on the work grid card only
-  screenshotImage?: string    // Template 1 right column; falls back to heroImage
-  processImage?: string
-  detailImage?: string
-  featured?: boolean   // true for homepage-featured projects
-  pageTemplate: 'tool' | 'visual'   // determines which page template to render
+    id: string;
+    title: string;
+    year: string;
+    medium: string;
+    role: string;
+    context: string;
+    tone: Tone;
+    altTone: Tone;
+    blurb: string;
+    tags: ProjectTag[];
+    lead: string;
+    body1: string;
+    quote: string;
+    body2: string;
+    body3: string;
+    url?: string;
+    heroImage?: string;
+    heroImagePosition?: string; // CSS object-position override, default 'center'
+    cardImage?: string; // overrides heroImage on the work grid card only
+    screenshotImage?: string; // Template 1 right column; falls back to heroImage
+    processImage?: string;
+    detailImage?: string;
+    featured?: boolean; // true for homepage-featured projects
+    pageTemplate: "tool" | "visual"; // determines which page template to render
+    sections?: ProjectSection[]; // when present, replaces body1/quote/body2/body3 with anchored sections
 }
-
-export const PROJECTS: Project[] = [
-  {
-    id: 'binding-affinity-module',
-    title: 'Binding Affinity Module',
-    year: '2025',
-    medium: 'React · Simularium · Education',
-    role: 'Visualization scientist · Lead',
-    context: 'Allen Institute for Cell Science',
-    tone: 'mustard',
-    altTone: 'teal',
-    blurb: 'An interactive Simularium-powered education module for teaching binding affinity from agent-based simulation.',
-    url: 'https://simularium.allencell.org',
-    tags: [
-      { label: 'Sci-Vis' },
-      { label: 'Research' },
-    ],
-    lead: 'The biggest misconceptions in introductory biology cluster around emergent behavior — how molecular interactions at one scale produce the bulk phenomena we observe at another. The Binding Affinity module is an attempt to teach that bridge directly, by letting students run the simulation themselves.',
-    body1: 'Most biology curricula introduce binding affinity through clear-liquid lab work and equilibrium constants on a board. The leap from that to a molecular picture of A + B ⇌ AB happening millions of times per second is one many students never make. Simularium gave us a substrate to close that gap: a browser-based agent simulation that students can pause, adjust, watch reach equilibrium, and record measurements from.',
-    quote: 'Major misconceptions in biology tend to cluster around how emergent behaviors come out of molecular interactions.',
-    body2: 'I led the module design with Lyndsay Wilhelm (senior UX). Three principles drove the work: balance self-directed and guided experience so students can wander but don\'t get lost; keep agents visually simple so the lesson is about simulation versus measurement, not 3D rendering; and keep the surrounding text minimal so instructors can slot the module into existing lessons without rewriting their syllabus. Students progress through high-affinity, low-affinity, and competitive-binding scenarios — recording equilibrium concentrations and deriving Kd from the data themselves.',
-    body3: 'The module is the first of a planned series. We\'re applying for grant funding to evaluate learning outcomes and are designing follow-up modules on membranes and on actin polymerization — both areas where the gap between molecular intuition and observable behavior is especially wide.',
-    heroImage: '/images/binding-affinity-hero.png',
-    screenshotImage: '/images/binding-affinity-ui.png',
-    processImage: '/images/binding-affinity-sim.png',
-    detailImage: '/images/binding-affinity-ui.png',
-    pageTemplate: 'tool',
-  },
-  {
-    id: 'cellpack',
-    title: 'cellPACK',
-    year: '2013–2016',
-    medium: 'Python · Cinema 4D · Modeling',
-    role: 'Postdoctoral scholar',
-    context: 'Johnson Lab, UCSF',
-    tone: 'sage',
-    altTone: 'mustard',
-    blurb: 'Mesoscale molecular modeling: packing protein structures into segmented volumes to build 3D cells from the inside out.',
-    url: 'https://cellpack.org',
-    tags: [
-      { label: 'Sci-Vis' },
-      { label: 'Research' },
-    ],
-    lead: 'Microscopy sees down to microns. X-ray crystallography sees down to atoms. The mesoscale — 10⁻⁷ to 10⁻⁸ meters, where individual proteins crowd against each other inside a cell — has no direct imaging method. cellPACK is a software approach to filling that gap: given a segmented volume and a library of protein structures with their abundances, pack them in so the result matches everything we know.',
-    body1: 'I joined Graham Johnson\'s lab at UCSF as a postdoc to work on cellPACK after my PhD. The tool grew out of Graham\'s thesis with Art Olson at Scripps and David Goodsell\'s decades of mesoscale paintings: cellPACK is the software that turns those 2D illustrations into 3D models you can interrogate computationally. You provide molecular structures, ultrastructure (organelle surfaces from EM tomography), and quantification data — concentrations, localizations, interactions — and the recipe-based packing engine produces a stochastic 3D model.',
-    quote: 'David Goodsell\'s paintings are the target. cellPACK is one way of getting there in 3D, with data attached.',
-    body2: 'The cellPACK library has grown to cover five biological systems of increasing complexity: blood plasma, cytoplasm, synaptic vesicle, HIV-1, and a coarse whole-cell model. I mentored UC Berkeley students Mini Choi (rebuilding the blood plasma recipe), Sung Han (converting Stanford\'s WholeCellViz Mycoplasma genitalium data into a cellPACK model), and Caroline Chan (streamlining the 3D-grid bottleneck inside autoPACK). My own modeling work in cellPACK included LDL/HDL particles — a recipe of phospholipid, cholesterol, cholesteryl ester, and triglyceride packed under ApoB, ApoC, and ApoE.',
-    body3: 'cellPACK was funded by a QB3@UCSF Fellowship, the Mary Anne Koda-Kimble award, and Autodesk. Tom Goddard at the UCSF Resource for Biocomputing was integrating cellPACK into UCSF Chimera; that direction eventually grew into the Simularium project at the Allen Institute, where the cellPACK approach to mesoscale models met a web-native viewer.',
-    heroImage: '/images/cellpack-mesoscale.png',
-    processImage: '/images/cellpack-systems.png',
-    detailImage: '/images/cellpack-blood.png',
-    featured: true,
-    pageTemplate: 'tool',
-  },
-  {
-    id: 'cell-migration-3d',
-    title: '3D Cell Migration',
-    year: '2014–2016',
-    medium: 'UCSF Chimera · Cinema 4D · Lattice light sheet',
-    role: 'Postdoctoral scholar',
-    context: 'Johnson Lab UCSF · Mullins Lab UCSF',
-    tone: 'clay',
-    altTone: 'sage',
-    blurb: 'Visualization, analysis, and 3D-printed museum exhibit for fast-moving white blood cells imaged by lattice light sheet microscopy.',
-    url: 'https://www.exploratorium.edu/visit/east-gallery/cell-motion',
-    tags: [
-      { label: 'Sci-Vis' },
-      { label: 'Research' },
-    ],
-    lead: 'White blood cells are some of the fastest-moving cells in the body, and lattice light sheet microscopy is one of the few tools that can record them in full 3D, live. The data is rich — 60 GB per cell — and almost unreadable as raw stacks. This was a project about turning that data into images you can think with, and eventually into an object you can put your hands on.',
-    body1: 'I worked in parallel between two UCSF labs: Graham Johnson\'s, where my appointment lived, and R. Dyche Mullins\', where Lillian Fritz-Laylin was running the cell migration experiments. The microscope was Eric Betzig and Bi-Chang Chen\'s lattice light sheet system; the cells were HL60s — a human promyelocytic-leukemia line that behaves like fast-moving neutrophils. Each acquisition produced a 4D dataset (3D volume × time) of a cell crawling either on glass or through a labeled or unlabeled collagen matrix.',
-    quote: 'A protrusion you can study is a protrusion you can name.',
-    body2: 'The Chimera vseries toolkit — built by Tom Goddard in Tom Ferrin\'s lab — was the backbone of the pipeline: aligning, normalizing, and compressing the volumes down from ~60 GB to ~6 GB while preserving surface detail. On top of that I built representations meant to make 4D data readable on a 2D page: tonally-shaded surface renders, Muybridge-style frame strips at fixed time intervals, and time-coded composites where each protrusion phase reads as a different color in a single integrated figure. Looking at the cells this way let us define a previously unnamed protrusion type — "rosettes" — and characterize how cells switch protrusion modes between flat and 3D environments.',
-    body3: 'The work was covered in UCSF\'s Science Focus series, and the 3D-printed cell models became the basis for an Exploratorium exhibit, A Cell in Motion, in Gallery 4: Living Systems. Visitors turn a hand crank to move a cell through time — a tactile version of the same dataset that produced the figures in the paper. Whole-cell visualization wasn\'t separate from the science; it was how we noticed that the protrusions were doing environmental interrogation, not directly driving motion.',
-    heroImage: '/images/wbc-postdoc.png',
-    processImage: '/images/wbc-motion.png',
-    detailImage: '/images/exploratorium-exhibit.png',
-    pageTemplate: 'visual',
-  },
-  {
-    id: 'simularium',
-    title: 'Simularium',
-    year: '2022',
-    medium: 'TypeScript · WebGL',
-    role: 'Visualization engineer',
-    context: 'Allen Institute for Cell Science',
-    tone: 'teal',
-    altTone: 'mustard',
-    blurb: 'An interactive web tool for viewing and sharing spatiotemporal biological simulations.',
-    url: 'https://simularium.allencell.org',
-    tags: [
-      { label: 'Sci-Vis' },
-      { label: 'Research' },
-    ],
-    lead: 'Simularium lets researchers view, explore, and share spatiotemporal biological simulations directly in the browser — no specialized software required.',
-    body1: 'The computational modeling ecosystem in biology is enormous and fragmented. Molecular dynamics tools like GROMACS and NAMD run at the atomic scale; ReaDDy, Smoldyn, and MCell handle reaction-diffusion at the molecular scale; Cytosim and MEDYAN simulate cytoskeletal dynamics; PhysiCell, CompuCell3D, and Morpheus model cells as agents. Each speaks its own file format, its own visualization conventions, its own install dance. The result is that a simulation is often legible only to the person who ran it.',
-    quote: 'The best visualization tool is the one a collaborator can open without installing anything.',
-    body2: 'Simularium was built as a common viewer for that ecosystem. The project defines an open file format that simulations from diverse tools can export to, and a web viewer that renders them interactively — step through time, filter agents, change visual encoding, plot quantities alongside the 3D scene. I worked across the full visualization stack: designing the 3D rendering pipeline, building the UI, and collaborating on the file format spec. The viewer handles models ranging from molecular dynamics to whole-cell agent-based simulations, and the published trajectories range from clathrin-mediated endocytosis to biomolecular condensate buffering work in eLife.',
-    body3: 'Simularium was published in Nature Methods in 2022. Beyond researcher-to-researcher use, it became the substrate for the Binding Affinity education module — the first of a planned series of interactive simulation lessons. The long-term goal Graham Johnson and I have talked about for years sits behind all of this: a completely virtual cell that anyone with a browser can step into and explore.',
-    heroImage: '/images/simularium.gif',
-    screenshotImage: '/images/simularium-viewer.png',
-    processImage: '/images/simularium-viewer.png',
-    detailImage: '/images/virtual-cell-goal.png',
-    featured: true,
-    pageTemplate: 'tool',
-  },
-  {
-    id: 'town-hall-project',
-    title: 'Town Hall Project',
-    year: '2017',
-    medium: 'JavaScript · Mapping',
-    role: 'Lead developer',
-    context: 'Nonprofit civic tech',
-    tone: 'mustard',
-    altTone: 'clay',
-    blurb: 'Tracking and publishing every public town hall held by a member of Congress — searchable, interactive, nationwide.',
-    url: 'https://townhallproject.com',
-    tags: [
-      { label: 'Civic Tech' },
-      { label: 'Data Viz' },
-    ],
-    lead: 'Town Hall Project researches and publishes every town hall event held by a member of Congress in a searchable interactive map, holding lawmakers accountable to their constituents.',
-    body1: 'I joined in early 2017 and built the original website and interactive map, transforming a volunteer-maintained Google spreadsheet into what became a nationally recognized civic data resource. Within months we had 100,000 users and a dataset of 25,000+ lawmaker events.',
-    quote: 'The Missing Member Report documented 193 members of Congress with zero public town halls in the first five months of 2017.',
-    body2: 'Beyond the map, I built SMS and email alert systems so constituents could get notified when their representative scheduled an event nearby. The project added an SMS alerting system, an email digest, and eventually expanded to mayoral races and state legislative races — over 100,000 races tracked.',
-    body3: 'Town Hall Project partnered with 50+ organizations including the ACLU, Sierra Club, Indivisible, and March for Our Lives, and received coverage in the Washington Post, New York Times, BBC, MSNBC, Politico, and PBS. 44 Town Hall Pledge candidates won their races in 2018.',
-    heroImage: '/images/town-hall.png',
-    processImage: '/images/indivisible.png',
-    featured: true,
-    pageTemplate: 'tool',
-  },
-  {
-    id: 'cell-feature-explorer',
-    title: 'Cell Feature Explorer',
-    year: '2020',
-    medium: 'React · D3 · WebGL',
-    role: 'Visualization engineer',
-    context: 'Allen Institute for Cell Science',
-    tone: 'sage',
-    altTone: 'teal',
-    blurb: 'Giving researchers interactive access to a database of 200,000+ segmented and measured human stem cells.',
-    url: 'https://cfe.allencell.org',
-    tags: [
-      { label: 'Sci-Vis' },
-      { label: 'Research' },
-    ],
-    lead: 'The Cell Feature Explorer makes a database of over 200,000 segmented human iPS cells interactively accessible — letting researchers filter, visualize, and compare cells by any measured structural feature.',
-    body1: 'The Allen Institute\'s cell database is one of the largest of its kind: hundreds of thousands of cells, each segmented in 3D and measured across dozens of structural features. The challenge was making that richness legible without drowning the researcher in options.',
-    quote: 'Good tools let the data ask questions back.',
-    body2: 'I designed the interactive scatter plots, 3D cell viewers, and filtering controls that let researchers explore the full dataset. A key design decision was linking the 2D statistical plots directly to 3D cell renderings — select a cluster of outliers in the scatter plot and the corresponding cells light up in 3D.',
-    body3: 'The Cell Feature Explorer underpinned the 2023 Nature paper "Integrated intracellular organization and its variations in human iPS cells" — a new mathematical framework for understanding cellular building blocks derived from that 200,000-cell database.',
-    heroImage: '/images/cell-feature-explorer.png',
-    processImage: '/images/mitochondria.png',
-    detailImage: '/images/cell-motion.gif',
-    featured: true,
-    pageTemplate: 'tool',
-  },
-  {
-    id: 'mutual-aid-hub',
-    title: 'Mutual Aid Hub',
-    year: '2020',
-    medium: 'React · Mapbox',
-    role: 'Lead developer',
-    context: 'Town Hall Project',
-    tone: 'clay',
-    altTone: 'sage',
-    blurb: 'A searchable map connecting people with mutual aid networks and food resources during COVID-19.',
-    url: 'https://mutualaidhub.org',
-    tags: [
-      { label: 'Civic Tech' },
-      { label: 'Data Viz' },
-    ],
-    lead: 'When COVID-19 lockdowns hit and mutual aid networks were forming faster than anyone could track, the Town Hall Project team pivoted to build a tool to help people find — and start — networks in their communities.',
-    body1: 'Mutual aid networks were appearing overnight in neighborhoods across the country, but there was no way to find them. People who wanted to help couldn\'t locate their local network; people who needed help couldn\'t either. We built Mutual Aid Hub to solve the discovery problem.',
-    quote: 'Help people find each other first. Everything else follows.',
-    body2: 'I built the application using React, Mapbox, and Google Firestore, with a volunteer researcher team maintaining the underlying data. The map covered mutual aid networks and food resources nationwide and updated continuously as new networks formed.',
-    body3: 'Beyond the map, we saw a second need: many communities didn\'t have a network yet. We organized events connecting people who wanted to start one with others in their area, turning the tool from a directory into a community-building platform.',
-    heroImage: '/images/mutual-aid-hub-map.png',
-    cardImage: '/images/mutual-aid-hub-banner.png',
-    screenshotImage: '/images/mutual-aid-hub-map.png',
-    processImage: '/images/mutual-aid-hub.png',
-    featured: true,
-    pageTemplate: 'tool',
-  },
-  {
-    id: 'imsc',
-    title: 'Integrated Mitotic Stem Cell',
-    year: '2019',
-    medium: 'WebGL · Volumetric rendering · Visual essay',
-    role: 'Lead visualization scientist',
-    context: 'Allen Institute for Cell Science',
-    tone: 'teal',
-    altTone: 'sage',
-    blurb: 'A visual essay and interactive 3D viewer that combines fifteen separately-labeled hiPSC lines into a single, navigable model of the dividing cell at each stage of mitosis.',
-    tags: [
-      { label: 'Sci-Vis' },
-      { label: 'Research' },
-    ],
-    lead: 'Mitosis is one of the most visually striking and most studied cell behaviors — a stepwise process in which a cell segregates its replicated DNA and divides. But no single image can show what every cellular structure is doing at each stage. The Integrated Mitotic Stem Cell project (IMSC) was built to do exactly that: a synthesis of thousands of single-channel images into one continuous 3D portrait of a dividing human stem cell.',
-    body1: 'The Allen Institute for Cell Science maintains a library of CRISPR-edited human iPS cell lines, each with an endogenous fluorescent tag on one cellular structure: TUBA1B for microtubules, CENT2 for centrioles, LMNB1 for nuclear envelope, SEC61B for endoplasmic reticulum, TOMM20 for mitochondria, ST6GAL1 for Golgi, FBL for nucleolus, LAMP1 for lysosomes, PMP34 for peroxisomes, ACTB for actin, ACTN1 for actin bundles, MYH10 for actomyosin bundles, TJP1 for tight junctions, DSP for desmosomes. Each line gives you one channel of truth. None of them gives you the whole cell.',
-    quote: 'A paper you can explore is a fundamentally different object than a paper you read.',
-    body2: 'Tens of thousands of 3D images later, we had a strategy. Cells were collected in random states of the cell cycle, but we could classify each one into a mitotic phase (M0–M7, from interphase through anaphase-cytokinesis) by the shape and texture of its DNA stain. Then, because DNA was a shared landmark across every cell line, we could align cells phase-by-phase and superimpose the segmented structures into a single integrated model. The web piece presents the result as a visual essay with sections — Introduction, Motivation, Observations, Explore in 3D, Appendix — that walk a reader through the question, the method, the findings, and then hand them the data to investigate themselves.',
-    body3: 'The Explore in 3D viewer lets readers toggle structure channels on and off, switch between mitotic stages, and adjust density, masking, clipping, and lighting in real time. The observations layer surfaces specific scientific findings the integrated view made visible — for instance, that lamin B1 associates with the peripheral ER during interphase and with the ER more broadly during mitosis, and that the Golgi fragments and disassembles before division and reassembles after. IMSC was an early test of what scientific publishing looks like when the data itself is the medium.',
-    url: 'https://imsc.allencell.org',
-    heroImage: '/videos/imsc-rotating.mp4',
-    cardImage: '/images/mitochondria.png',
-    screenshotImage: '/images/mitosis.gif',
-    processImage: '/videos/imsc-mitosis-stages.mp4',
-    detailImage: '/images/imsc-essay.jpg',
-    pageTemplate: 'tool',
-  },
-  {
-    id: 'hbv-animation',
-    title: 'HBV Lifecycle Animation',
-    year: '2015–2016',
-    medium: 'Cinema 4D · Molecular animation',
-    role: 'Scientific animator',
-    context: 'Assembly Biosciences · Johnson Lab, UCSF',
-    tone: 'mustard',
-    altTone: 'teal',
-    blurb: 'A ~3-minute molecular animation tracing the Hepatitis B virus lifecycle and the drug-development rationale behind targeting Core protein and cccDNA.',
-    tags: [{ label: 'Sci-Vis' }],
-    lead: 'About 200–300 million people are chronically infected with Hepatitis B worldwide, and HBV is a leading cause of liver-related death. Current oral therapies suppress new virus production but don\'t touch the cccDNA reservoir in the nucleus, so infections persist. Assembly Biosciences commissioned this animation to explain the lifecycle to clinicians, investors, and the scientific community — and to make the case for their upstream drug-development strategy.',
-    body1: 'The animation follows a single virion from interstitial fluid to liver-cell receptor binding, internalization, capsid trafficking to the nuclear pore, rcDNA release and conversion to cccDNA, transcription of pgRNA, ribosomal translation of the viral proteins (S, X, E, Polymerase, Core), capsid reassembly around new pgRNA + Pol, reverse transcription back to rcDNA, and finally the branch point: re-amplification of the cccDNA pool versus envelopment by S and secretion as new virions. Each step is anchored in published structural and biochemical data.',
-    quote: 'Accuracy and clarity are not the same thing. This project was about finding where they overlap.',
-    body2: 'The technical challenge was managing scale. A full lifecycle involves so many distinct molecular events that a literal walkthrough loses the viewer. I built the animation as a single continuous shot inside one liver cell, using a "look-focus-pan" technique — borrowed from theme-park dark rides — to move from station to station: virus binding, then nuclear pore, then cccDNA, then ribosome, then capsid assembly, then export. Brownian motion runs at normal speed in the opening interstitial-fluid shot, then drops to slow motion (a Matrix-style bullet-time transition) once we\'re inside the cell, so the viewer can read individual molecular interactions.',
-    body3: 'The closing sequence reframes the whole lifecycle as a drug-target diagram: a "downstream" arrow sweeps across the steps that current oral therapies block, and an "upstream" arrow highlights cccDNA and Core protein — Assembly\'s focus — as the steps that have to be silenced to actually cure the disease. The animation was directed in collaboration with Graham Johnson during my postdoc in his lab at UCSF and delivered to Assembly Biosciences in 2016.',
-    heroImage: '/videos/hbv-hero.mp4',
-    cardImage: '/images/hbv-virus-hero.jpg',
-    processImage: '/videos/hbv-cccdna-cycle.mp4',
-    detailImage: '/images/hbv-lifecycle.jpg',
-    pageTemplate: 'visual',
-  },
-  {
-    id: 'crispr-cover',
-    title: 'CRISPR Cover Art',
-    year: '2016',
-    medium: 'Cinema 4D · Illustration',
-    role: 'Scientific illustrator',
-    context: 'UCSF',
-    tone: 'ink',
-    altTone: 'mustard',
-    blurb: 'A cover illustration for Science magazine depicting the CRISPR-Cas9 system.',
-    tags: [{ label: 'Sci-Vis' }],
-    lead: 'A cover illustration for Science magazine — a rendering of the CRISPR-Cas9 system built from structural data and designed to be both scientifically grounded and visually striking.',
-    body1: 'Cover illustrations for scientific journals live in an unusual space: they must be accurate enough to satisfy reviewers and beautiful enough to draw attention on a newsstand. I built this rendering from the published crystal structure of the Cas9 protein complex, using Cinema 4D for the 3D work and a traditional illustration approach for the final compositing.',
-    quote: 'A good scientific illustration is an argument about what matters.',
-    body2: 'The color choices, the camera angle, the level of abstraction — each is a decision about what the image is trying to say. For this piece, the goal was to convey both the precision of the molecular machinery and the elegance of the editing mechanism.',
-    body3: 'The cover was part of a broader collaboration with Jennifer Doudna\'s lab at UC Berkeley. Working at the intersection of research communication and visual design — where the audience is both the specialist and the general reader — is where I find the most interesting problems.',
-    heroImage: '/images/crispr-cover.jpg',
-    processImage: '/images/mucus-viz.png',
-    pageTemplate: 'visual',
-  },
-  {
-    id: 'trapping-kinases',
-    title: 'Trapping Kinases',
-    year: '2014',
-    medium: 'Chemical biology · PhD thesis',
-    role: 'Doctoral researcher',
-    context: 'Shokat Lab, UCSF',
-    tone: 'sage',
-    altTone: 'mustard',
-    blurb: 'PhD work in the Shokat Lab: a chemical cross-linker that captures kinases with their endogenous substrates, published in Chemistry & Biology with cover art.',
-    url: 'https://doi.org/10.1016/j.chembiol.2014.02.022',
-    tags: [{ label: 'Research' }],
-    lead: 'Protein kinases regulate almost every signaling pathway in the cell — but identifying which substrate a given kinase phosphorylates, in a living context, is notoriously hard. The Shokat lab had already developed a forward method to discover the substrates of a given kinase. My PhD work was the reverse: given a phosphoprotein, identify the upstream kinase. There are over 500 human kinases acting on more than 10,000 substrates, and most of those pairs are still unknown.',
-    body1: 'Kinases normally transfer a γ-phosphate from ATP onto a hydroxyl group on their substrate and then release. The specificity comes from the kinase-substrate interaction itself; the small-molecule ATP is a promiscuous binder. I took advantage of that asymmetry: design an ATP analog that, when brought into the active site by a real substrate, forms a covalent bond between kinase and substrate instead of completing the phosphate transfer. The pair gets trapped together — long enough to pull out and identify.',
-    quote: 'A phosphate transfer is a moment. A covalent crosslink is a record.',
-    body2: 'My first design — a thiophene dialdehyde — formed an imine with a lysine on Src cleanly, but the second step (cysteine attack to lock the trap) failed in the presence of substrate. The substrate peptide was restricting the cysteine\'s degrees of freedom enough to block access to the dialdehyde. So I redesigned the cross-linker as an ATP-MA acrylamide, which delivers a more accessible electrophile via the bound nucleotide. The resulting Src-acrylamide reacted selectively with substrate cysteines (Src-amide) over non-specific free thiols and other peptides.',
-    body3: 'The work was published in Chemistry & Biology in May 2014 (Riel-Mehan & Shokat, Chem Biol 21(5):585–90), and the molecular illustration I made for the paper was selected as the issue cover — "Crosslinker Brings Kinase-Substrate Pairs Into Focus." That phrase shaped how I think about everything I\'ve made since: each tool, whether chemistry or visualization, is a way of bringing some part of biology into focus that wasn\'t before.',
-    heroImage: '/images/chem-biol-cover.png',
-    processImage: '/images/kinase-mechanism-detail.png',
-    detailImage: '/images/kinases-mechanism.png',
-    pageTemplate: 'visual',
-  },
-  {
-    id: 'ldl-hdl-models',
-    title: 'LDL & HDL Models',
-    year: '2015',
-    medium: 'Cinema 4D · Illustration',
-    role: 'Scientific illustrator',
-    context: 'UCSF',
-    tone: 'clay',
-    altTone: 'mustard',
-    blurb: 'Molecular models of LDL and HDL lipoprotein particles, built from structural literature when no crystal structure was available.',
-    tags: [{ label: 'Sci-Vis' }],
-    lead: 'Detailed molecular models of low-density and high-density lipoprotein particles — built from structural data for use in education, research presentations, and public communication.',
-    body1: 'LDL and HDL are among the most clinically discussed molecules in medicine and among the least accurately depicted. Most popular illustrations are schematic at best: a colored ball with a few proteins dotted on the surface. These models were built to be structurally faithful — using published data on the lipid composition, apolipoprotein arrangement, and particle geometry — at a level of detail meant to hold up to scrutiny from a structural biologist.',
-    quote: 'Most people have heard of these molecules. Almost no one has seen them accurately.',
-    body2: 'The hard part is Apolipoprotein B-100, the single enormous protein that wraps each LDL particle. ApoB cannot be crystallized — it is too large, too flexible, too embedded in lipid — so no atomic structure exists. What does exist is a consensus model assembled from decades of biochemistry, cryo-EM, and computational work: a lipovitellin-like β-barrel domain anchoring amphipathic α-helices and β-sheets across the particle surface. I worked from that consensus, building a 3D model in Cinema 4D that translates the schematic into space — proportions, surface texture, and the geometry of how the protein actually wraps the lipid core.',
-    body3: 'The models were used in research presentations and educational materials. Building them deepened my appreciation for how much scientific illustration still relies on convention rather than data — and how productive it can be to ask, for a molecule everyone draws schematically, what it would actually look like.',
-    heroImage: '/images/ldl-particles.png',
-    processImage: '/images/apob-model.png',
-    detailImage: '/images/sci-viz-banner.png',
-    pageTemplate: 'visual',
-  },
-  {
-    id: 'indivisible',
-    title: 'Indivisible Map',
-    year: '2017',
-    medium: 'React · Mapbox',
-    role: 'Lead developer',
-    context: 'Indivisible',
-    tone: 'sage',
-    altTone: 'teal',
-    blurb: 'Interactive group and event mapping for indivisible.org — helping people find local chapters and actions.',
-    url: 'https://indivisible.org/events',
-    tags: [{ label: 'Civic Tech' }],
-    lead: 'A searchable, interactive map for indivisible.org that helped people find local Indivisible chapters and actions — one of the first large-scale civic mapping tools built for the post-2016 organizing surge.',
-    body1: 'Indivisible launched in late 2016 and grew faster than anyone expected. Within months there were thousands of local groups with no good way for people to find them. I built the interactive map that became the primary tool for group discovery on indivisible.org.',
-    quote: 'Civic technology works best when it solves the problem immediately in front of someone.',
-    body2: 'I built the map using React and Mapbox, with a data pipeline pulling from the Indivisible group database. The tool needed to handle both geographic search and filtering by event type, and to work well on mobile — where most people were accessing it.',
-    body3: 'The Indivisible Map was the direct predecessor to the Town Hall Project\'s mapping work. The patterns I developed here — performant clustering, mobile-first interaction design, live data integration — became the foundation for how I approached civic mapping projects going forward.',
-    heroImage: '/images/indivisible.png',
-    processImage: '/images/town-hall.png',
-    pageTemplate: 'tool',
-  },
-  {
-    id: 'portraits',
-    title: 'Portrait paintings',
-    year: 'Various',
-    medium: 'Oil on canvas',
-    role: 'Artist',
-    context: 'Studio',
-    tone: 'clay',
-    altTone: 'sage',
-    blurb: 'A series of figurative oil paintings — portraits of people I know and have studied.',
-    tags: [{ label: 'Fine Art' }],
-    lead: 'Painting people is an exercise in sustained attention. These portraits are made from observation — from sitting with a subject over hours and trying to find the version of their face that the camera doesn\'t catch.',
-    body1: 'I\'ve been painting figuratively since before I studied chemistry. The practice runs alongside the scientific work, not in opposition to it. The same habits of looking that make a good scientific illustrator make a better portrait painter — and vice versa.',
-    quote: 'A portrait is a negotiation between what you see and what you know.',
-    body2: 'These paintings are made with oil on canvas or linen, from life or from long photographic study sessions. The subjects are mostly people I know: friends, family, the occasional stranger who said yes. Each one takes between one and four sessions.',
-    body3: 'The series has no thesis. It\'s a practice — of looking, of returning, of finding out what you missed the first time.',
-    heroImage: '/images/painting-main.jpg',
-    processImage: '/images/art-teddy.jpg',
-    detailImage: '/images/art-leslie.jpg',
-    pageTemplate: 'visual',
-  },
-]
