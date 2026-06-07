@@ -16,5 +16,5 @@ body2: |
   What I keep thinking about, two weeks after the paper came out, is the cover line. "Bringing kinase-substrate pairs into focus" describes what this cross-linker does. But it also describes what makes a tool worth building, in general. Most of biology — at the scale where I work — is invisible by default. The interactions are too fast, too crowded, too small, or too rare to resolve. The job of the tool, whether it's chemistry or microscopy or molecular illustration, is to bring one specific thing into focus so it can be studied.
 body3: |
   I'm finishing the dissertation now and starting to think about what comes next. Whatever it is, I want it to keep that property. Build the lens. Bring the thing into focus. Then let other people use the focus to learn something I couldn't have predicted.
-coverImage: /images/posts/crosslinker-into-focus/cover.png
+coverImage: /images/projects/trapping-kinases/hero.png
 ---

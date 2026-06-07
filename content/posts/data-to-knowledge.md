@@ -15,5 +15,5 @@ body2: |
   What the four projects share is that each is a translation tool. The cross-linker translates a phosphoprotein into the kinase that modified it. sigViz translates a signaling network into something biologists without a programming background can map and animate. The cell migration work translates 60 GB of 4D microscopy into 2D images you can publish and a 3D-printed exhibit you can crank. cellPACK translates concentrations, structures, and ultrastructure into stochastic 3D models of cellular environments.
 body3: |
   The phrase I keep coming back to, from the Chemistry & Biology cover of my dissertation work in 2014, is bringing something into focus. Each of these tools is a way of focusing some part of biology that wasn't legible before. The visualization scientist's bet is that this is a discipline of its own — that there's craft and method in building the bridge, and that the bridge is what most current science is missing.
-coverImage: /images/posts/data-to-knowledge/cover.png
+coverImage: /images/posts/data-to-knowledge.png
 ---
