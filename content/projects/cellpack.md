@@ -13,8 +13,8 @@ tags:
   - label: Research
 featured: true
 pageTemplate: tool
-heroImage: /images/projects/cellpack/hero.png
-screenshotImage: /images/projects/cellpack/hiv.webp
+heroImage: /images/projects/cellpack/blood-plasma-simularium.jpg
+screenshotImage: /images/projects/cellpack/studio.jpg
 lead: |
   Microscopy sees down to microns. X-ray crystallography sees down to atoms. The mesoscale — 10⁻⁷ to 10⁻⁸ meters, where individual proteins crowd against each other inside a cell — has no direct imaging method. cellPACK fills that gap: given a segmented volume and a library of molecular ingredients with rules for how they distribute, the engine packs them into 3D models you can render, simulate, or compare against experimental data. The project has gone through three distinct lives across thirteen years; this page walks through all of them.
 sections:
@@ -38,8 +38,8 @@ sections:
         Between 2021 and 2022, Saurabh Mogre, Ryan Spangler and I pulled the algorithm out of the 3D-software plugin shell and into a standalone Python package. We brought it under version control, open-sourced it, wrote real documentation, and aligned the codebase with AICS engineering standards. We built a converter from cellPACK output to simulariumio — so a cellPACK model can be opened directly in the Simularium web viewer with no install — and integrated cellPACK with the vivarium multi-modal simulation framework (Agmon, Spangler et al., Bioinformatics 38-7, 2022). The result is a packing engine that runs on the CPU, in Python, anywhere.
   - id: scientific-applications
     title: Scientific applications
-    image: /images/projects/cellpack/rules-triptych.jpg
-    imageAlt: "Three packing rules: empty cell, membrane bias, nucleus bias"
+    image: /images/projects/cellpack/cell-grid.jpg
+    imageAlt: "cellPACK simulated cells: a grid of variants around a packed cell with green puncta"
     content:
       - |
         Modernization turned cellPACK from an illustration tool into a hypothesis-testing tool. The question we asked first was almost embarrassingly basic: are punctate organelles like peroxisomes and endosomes distributed randomly inside a human iPS cell, or is there a spatial bias we've been missing? Using the WTC-11 hiPSC Single Cell Image Dataset — the same 200,000+ cell library behind the 2023 Nature paper on integrated intracellular organization (Viana et al.) — we generated cellPACK simulations under four simple rules: unbiased, nuclear bias, membrane bias, and apical bias.

@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation'
 import Mark from './Mark'
 
 const LINKS = [
-  { href: '/work', label: 'Work', match: (p: string) => p === '/' || p.startsWith('/work') },
+  { href: '/work', label: 'Work', match: (p: string) => p.startsWith('/work') },
   { href: '/notebook', label: 'Notebook', match: (p: string) => p.startsWith('/notebook') },
   { href: '/about', label: 'About', match: (p: string) => p === '/about' },
 ]
@@ -40,9 +40,11 @@ export default function Nav() {
             </Link>
           ))}
         </div>
-        <div className="nav-actions">
-          <Link href="/about" className="btn btn-ghost">Say hello</Link>
-        </div>
+        {pathname !== '/about' && (
+          <div className="nav-actions">
+            <Link href="/about" className="btn btn-ghost">Say hello</Link>
+          </div>
+        )}
       </div>
     </nav>
   )

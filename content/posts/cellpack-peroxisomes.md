@@ -15,5 +15,5 @@ body2: |
   We used PILR (Parameterized Intracellular Localization Reduction) — the Allen Institute's parameterized organelle-distribution pipeline — to compute the average distribution profile for each population: real peroxisomes, random simulated, nuclear-biased simulated, membrane-biased simulated. We then computed correlations between each simulated profile and the experimental profile. The result was satisfyingly clean: the nuclear-bias rule produced the highest correlation with the observed peroxisome distribution. Random and membrane bias correlated less well.
 body3: |
   That's not a final answer — "nuclear bias" is a phenomenological description, not a mechanism — but it gives the cell biologists a candidate hypothesis to test experimentally. An abstract on this work was accepted for ASCB (we submitted to BPS too, awaiting decision). The team: Saurabh Mogre, Ruge Li, and me. We're working on extending to other punctate organelles like endosomes next, and getting the rule-mixing infrastructure ready for combined hypotheses.
-coverImage: /images/posts/cellpack-nucleus-bias.png
+coverImage: /images/posts/cellpack-cell-grid.jpg
 ---
