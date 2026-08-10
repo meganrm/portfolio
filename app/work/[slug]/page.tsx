@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { ArrowLeft, ArrowRight, ExternalLink } from 'lucide-react'
 import Eyebrow from '@/components/Eyebrow'
+import GalleryLightbox from '@/components/GalleryLightbox'
 import { PROJECTS } from '@/lib/content'
 import type { Project } from '@/data/projects'
 import type { Metadata } from 'next'
@@ -161,8 +162,8 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
   const currentIndex = PROJECTS.findIndex((p) => p.id === params.slug)
   const next = PROJECTS[(currentIndex + 1) % PROJECTS.length]
 
-  // ─── Portraits: custom gallery layout ──────────────────────────────────
-  if (project.id === 'portraits') {
+  // ─── Gallery layout — any project with a `gallery` array ───────────────
+  if (project.gallery?.length) {
     return (
       <main>
         <div className="container">
@@ -177,22 +178,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           <div className="detail-closing" style={{ borderTop: 'none', paddingTop: 0 }}>
             <p className="detail-lead">{project.lead}</p>
           </div>
-          <div className="art-gallery">
-            {[
-              { src: '/images/projects/portraits/bruce.png',    alt: 'Bruce' },
-              { src: '/images/projects/portraits/teddy.jpg',    alt: 'Teddy' },
-              { src: '/images/projects/portraits/leslie.jpg',   alt: 'Leslie' },
-              { src: '/images/projects/portraits/elenore.jpg',  alt: 'Elenore' },
-              { src: '/images/projects/portraits/angelica.jpg', alt: 'Angelica' },
-              { src: '/images/projects/portraits/paulo.jpg',    alt: 'Paulo' },
-              { src: '/images/projects/portraits/warren.jpg',   alt: 'Elizabeth Warren' },
-              { src: '/images/projects/portraits/img0036.jpg',  alt: 'Portrait' },
-            ].map(({ src, alt }) => (
-              <div key={src} className="art-gallery-item">
-                <Image src={src} alt={alt} fill style={{ objectFit: 'cover', borderRadius: 0 }} />
-              </div>
-            ))}
-          </div>
+          <GalleryLightbox items={project.gallery} />
           <Link href={`/work/${next.id}`} className="next-project">
             <div>
               <Eyebrow>Next project</Eyebrow>

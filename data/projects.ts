@@ -12,6 +12,12 @@ export interface ProjectSection {
     imageAlt?: string; // alt text for image
 }
 
+export interface GalleryItem {
+    src: string; // image path
+    alt: string; // alt text
+    blurb?: string; // optional caption shown below the image
+}
+
 export interface Project {
     id: string;
     title: string;
@@ -38,4 +44,5 @@ export interface Project {
     featured?: boolean; // true for homepage-featured projects
     pageTemplate: "tool" | "visual"; // determines which page template to render
     sections?: ProjectSection[]; // when present, replaces body1/quote/body2/body3 with anchored sections
+    gallery?: GalleryItem[]; // when present, renders a custom gallery (used by portrait/visual collections)
 }

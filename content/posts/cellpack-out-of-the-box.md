@@ -7,7 +7,7 @@ title: Bringing cellPACK out of the box
 excerpt: |
   How we pulled the cellPACK packing engine out of proprietary 3D-animation software, made it open source, and connected it to the Simularium web viewer.
 lead: |
-  cellPACK has been around since 2012 — originally Graham Johnson and Ludovic Autin's tool for translating David Goodsell's mesoscale paintings into 3D models. It's been beautiful, scientifically useful, and almost impossible for anyone but Ludo to actually run. This month we took the first big step toward fixing that.
+  cellPACK has been around since 2012 — originally Graham Johnson and Ludovic Autin's tool for translating David Goodsell's mesoscale paintings into 3D models. It's been beautiful, scientifically useful, but was time consuming to update for all the different software programs. This month we took the first big step toward fixing that.
 body1: |
   The problem was architectural. cellPACK was built as a plugin for 3D animation software — mostly proprietary tools like Cinema 4D and Maya, with adaptors for a few free ones. Some plugins were stale; some features were broken; the underlying Python depended on packages that had been deprecated for years. The code wasn't open source in any meaningful sense, and it wasn't up to the Allen Institute engineering standards.
 h1: Re-housing the engine
