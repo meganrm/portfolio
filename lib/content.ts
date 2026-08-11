@@ -16,3 +16,4 @@ function loadContent<T>(dir: string): T[] {
 
 export const PROJECTS = loadContent<Project>('content/projects')
 export const POSTS    = loadContent<Post>('content/posts')
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
