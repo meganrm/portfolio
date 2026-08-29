@@ -13,9 +13,9 @@ tags:
   - label: Research
 pageTemplate: tool
 heroImage: /videos/projects/imsc/rotating.mp4
-cardImage: /images/projects/cell-feature-explorer/mitochondria.png
+cardImage: /images/projects/imsc/imsc-cover-image-2-1080-home-1.jpg
 screenshotImage: /images/projects/imsc/mitosis.gif
-processImage: /videos/projects/imsc/mitosis-stages.mp4
+processImage: /images/projects/imsc/imsc-cover-image-2-1080-home-1.jpg
 detailImage: /images/projects/imsc/essay.jpg
 lead: |
   Mitosis is one of the most visually striking and most studied cell behaviors — a stepwise process in which a cell segregates its replicated DNA and divides. But no single image can show what every cellular structure is doing at each stage. The Integrated Mitotic Stem Cell project (IMSC) was built to do exactly that: a synthesis of thousands of single-channel images into one continuous 3D portrait of a dividing human stem cell.

@@ -1,4 +1,5 @@
 ---
+public: false
 title: Trapping Kinases
 year: "2014"
 medium: Chemical biology · PhD thesis

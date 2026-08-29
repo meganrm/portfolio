@@ -16,4 +16,5 @@ body2: |
   Simularium defines an open file format that simulations from diverse tools can be exported to, and a web viewer that renders them interactively — step through time, filter agents, change visual encoding, examine individual molecules. No install. Just a link.
 body3: |
   The paper was published in Nature Methods in 2022, with a team spanning the Allen Institute and collaborating institutions. The viewer is open source and actively used by researchers sharing models that would previously have required a live demo to communicate.
+coverImage: /images/projects/simularium/simularium-banner.png
 ---

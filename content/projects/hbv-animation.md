@@ -1,4 +1,5 @@
 ---
+public: false
 title: HBV Lifecycle Animation
 year: "2015–2016"
 medium: Cinema 4D · Molecular animation

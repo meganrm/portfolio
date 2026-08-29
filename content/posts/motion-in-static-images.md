@@ -15,5 +15,5 @@ body2: |
   For the HL60 migrating-cell work in the Mullins lab, I tried three encodings. First: classical frame strips at 18.8-second intervals — the Muybridge solution — for cell shape over time. Second: time-coded volumetric overlays where each color represents a 4-second window of protrusion activity, so an entire 16-second cycle of cell extension reads as a single Duchamp-like figure. Third: 3D-printed cells from the volumetric data, mounted on a hand crank for the Exploratorium so visitors could turn the time axis themselves. Each one trades different things: legibility for completeness, single-glance reading for full reconstruction.
 body3: |
   The lesson is that the visualization problem for live cell imaging isn't a software problem — Chimera, Imaris, FIJI all render 4D fine. It's a representational problem, and there's a long lineage of solutions outside biology that I think we under-borrow from. The image you can hold in your head matters more than the volume rendering you can rotate.
-coverImage: /images/posts/motion-muybridge.png
+coverImage: /images/posts/fan.png
 ---

@@ -98,7 +98,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
                                 rel="noopener noreferrer"
                                 className="link-arrow"
                             >
-                                Read the original <ExternalLink size={15} />
+                                Read the paper <ExternalLink size={15} />
                             </a>
                         </p>
                     )}

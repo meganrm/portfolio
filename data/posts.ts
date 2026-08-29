@@ -14,6 +14,7 @@ export interface Post {
     h1: string;
     body2: string;
     body3: string;
+    public?: boolean;
     url?: string;
     coverImage?: string;
 }

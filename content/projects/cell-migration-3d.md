@@ -1,4 +1,5 @@
 ---
+public: false
 title: 3D Cell Migration
 year: "2014–2016"
 medium: UCSF Chimera · Cinema 4D · Lattice light sheet

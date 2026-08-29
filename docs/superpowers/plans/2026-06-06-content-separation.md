@@ -153,18 +153,18 @@ Note: `h1` is quoted above because it starts with "PILR," — quoting any value 
 
 Create one `.md` file per post in `content/posts/`. Pull all field content from `data/posts.ts`. Apply the same format rules as the example above. Image paths use the new `posts/[id]/` locations (Task 8 moves the actual files).
 
-| Filename | tag.label | h1 field | coverImage new path | url |
-|---|---|---|---|---|
-| `cellpack-rules-of-organization.md` | Research | *(none)* | `/images/posts/cellpack-rules-of-organization/cover.jpg` | — |
-| `integrated-intracellular-organization.md` | Research | The interior design of our cells | *(none)* | `https://www.nature.com/articles/s41586-022-05563-7` |
-| `imsc-one-cell-from-many.md` | Sci-Vis | Aligning by DNA | *(none)* | `https://imsc.allencell.org` |
-| `cellpack-out-of-the-box.md` | Methods | Re-housing the engine | `/images/posts/cellpack-out-of-the-box/cover.webp` | — |
-| `simularium-publication.md` | Sci-Vis | From file to browser | *(none)* | `https://doi.org/10.1038/s41592-022-01442-1` |
-| `data-to-knowledge.md` | Essay | Tools as translators | `/images/posts/data-to-knowledge/cover.png` | — |
-| `motion-in-static-images.md` | Methods | What I borrowed | `/images/posts/motion-in-static-images/cover.png` | — |
-| `3d-meshes-threejs.md` | Sci-Vis | Baking ambient occlusion in Cinema4D | *(none)* | — |
-| `white-blood-cells.md` | Research | Communicating motion in static images | `/images/posts/white-blood-cells/cover.png` | `https://www.ucsf.edu/news/2016/11/404936/...` |
-| `crosslinker-into-focus.md` | Research | The metaphor | `/images/posts/crosslinker-into-focus/cover.png` | `https://doi.org/10.1016/j.chembiol.2014.02.022` |
+| Filename                                   | tag.label | h1 field                              | coverImage new path                                      | url                                                  |
+| ------------------------------------------ | --------- | ------------------------------------- | -------------------------------------------------------- | ---------------------------------------------------- |
+| `cellpack-rules-of-organization.md`        | Research  | *(none)*                              | `/images/posts/cellpack-rules-of-organization/cover.jpg` | —                                                    |
+| `integrated-intracellular-organization.md` | Research  | The interior design of our cells      | *(none)*                                                 | `https://www.nature.com/articles/s41586-022-05563-7` |
+| `imsc-one-cell-from-many.md`               | Sci-Vis   | Aligning by DNA                       | *(none)*                                                 | `https://imsc.allencell.org`                         |
+| `cellpack-out-of-the-box.md`               | Methods   | Re-housing the engine                 | `/images/posts/cellpack-out-of-the-box/cover.webp`       | —                                                    |
+| `simularium-publication.md`                | Sci-Vis   | From file to browser                  | *(none)*                                                 | `https://doi.org/10.1038/s41592-022-01442-1`         |
+| `data-to-knowledge.md`                     | Essay     | Tools as translators                  | `/images/posts/data-to-knowledge/cover.png`              | —                                                    |
+| `motion-in-static-images.md`               | Methods   | What I borrowed                       | `/images/posts/motion-in-static-images/cover.png`        | —                                                    |
+| `3d-meshes-threejs.md`                     | Sci-Vis   | Baking ambient occlusion in Cinema4D  | *(none)*                                                 | —                                                    |
+| `white-blood-cells.md`                     | Research  | Communicating motion in static images | `/images/posts/white-blood-cells/cover.png`              | `https://www.ucsf.edu/news/2016/11/404936/...`       |
+| `crosslinker-into-focus.md`                | Research  | The metaphor                          | `/images/posts/crosslinker-into-focus/cover.png`         | `https://doi.org/10.1016/j.chembiol.2014.02.022`     |
 
 - [ ] **Step 1: Create all 11 post Markdown files**
 
@@ -293,7 +293,7 @@ sections:
       - |
         The original cellPACK ran as a plugin inside proprietary 3D animation software, depended on deprecated packages. When I moved with Graham to the Allen Institute for Cell Science, modernizing the codebase became the prerequisite for everything else we wanted to do with it.
       - |
-        Between 2021 and 2022, Saurabh Mogre, Ryan Spangler and I pulled the algorithm out of the 3D-software plugin shell and into a standalone Python package. We brought it under version control, open-sourced it, wrote real documentation, and aligned the codebase with AICS engineering standards. We built a converter from cellPACK output to simulariumio — so a cellPACK model can be opened directly in the Simularium web viewer with no install — and integrated cellPACK with the vivarium multi-modal simulation framework (Agmon, Spangler et al., Bioinformatics 38-7, 2022). The result is a packing engine that runs on the CPU, in Python, anywhere.
+        Between 2021 and 2022, Saurabh Mogre, Ryan Spangler and I pulled the algorithm out of the 3D-software plugin shell and into a standalone Python package. We brought it under version control, open-sourced it, wrote documentation, and aligned the codebase with AICS engineering standards. We built a converter from cellPACK output to simulariumio — so a cellPACK model can be opened directly in the Simularium web viewer with no install, and integrated cellPACK with the vivarium multi-modal simulation framework (Agmon, Spangler et al., Bioinformatics 38-7, 2022). The result is a packing engine that runs on the CPU, in Python, anywhere.
   - id: scientific-applications
     title: Scientific applications
     image: /images/projects/cellpack/rules-triptych.jpg
@@ -325,20 +325,20 @@ Create one `.md` per project. Pull content from `data/projects.ts`. Apply the sa
 
 Only `cellpack` uses `sections`. All other projects use flat `body1`/`quote`/`body2`/`body3`.
 
-| Filename | tone | altTone | pageTemplate | featured | notes |
-|---|---|---|---|---|---|
-| `binding-affinity-module.md` | mustard | teal | tool | — | flat body |
-| `cell-migration-3d.md` | clay | sage | visual | — | flat body |
-| `town-hall-project.md` | mustard | clay | tool | true | flat body |
-| `cell-feature-explorer.md` | sage | teal | tool | — | flat body |
-| `mutual-aid-hub.md` | clay | sage | tool | true | flat body; has `cardImage` |
-| `imsc.md` | teal | sage | tool | — | flat body; heroImage and processImage are `/videos/` paths |
-| `hbv-animation.md` | mustard | teal | visual | — | flat body; heroImage and processImage are `/videos/` paths |
-| `crispr-cover.md` | ink | mustard | visual | — | flat body |
-| `trapping-kinases.md` | sage | mustard | visual | — | flat body; has `url` |
-| `ldl-hdl-models.md` | clay | mustard | visual | — | flat body |
-| `indivisible.md` | sage | teal | tool | — | flat body; has `url` |
-| `portraits.md` | clay | sage | visual | — | flat body |
+| Filename                     | tone    | altTone | pageTemplate | featured | notes                                                      |
+| ---------------------------- | ------- | ------- | ------------ | -------- | ---------------------------------------------------------- |
+| `binding-affinity-module.md` | mustard | teal    | tool         | —        | flat body                                                  |
+| `cell-migration-3d.md`       | clay    | sage    | visual       | —        | flat body                                                  |
+| `town-hall-project.md`       | mustard | clay    | tool         | true     | flat body                                                  |
+| `cell-feature-explorer.md`   | sage    | teal    | tool         | —        | flat body                                                  |
+| `mutual-aid-hub.md`          | clay    | sage    | tool         | true     | flat body; has `cardImage`                                 |
+| `imsc.md`                    | teal    | sage    | tool         | —        | flat body; heroImage and processImage are `/videos/` paths |
+| `hbv-animation.md`           | mustard | teal    | visual       | —        | flat body; heroImage and processImage are `/videos/` paths |
+| `crispr-cover.md`            | ink     | mustard | visual       | —        | flat body                                                  |
+| `trapping-kinases.md`        | sage    | mustard | visual       | —        | flat body; has `url`                                       |
+| `ldl-hdl-models.md`          | clay    | mustard | visual       | —        | flat body                                                  |
+| `indivisible.md`             | sage    | teal    | tool         | —        | flat body; has `url`                                       |
+| `portraits.md`               | clay    | sage    | visual       | —        | flat body                                                  |
 
 Image paths for each project follow the pattern `/images/projects/[slug]/[descriptive-name].[ext]`. The exact new paths are defined in the image mapping table in Task 7.
 
@@ -596,124 +596,124 @@ git commit -m "feat: switch all page imports to lib/content loader; strip hardco
 The table below lists every active image/video referenced in the data, its current location, and its new location. Move each file with `mv`.
 
 **Binding Affinity:**
-| Current | New |
-|---|---|
+| Current                                   | New                                                |
+| ----------------------------------------- | -------------------------------------------------- |
 | `public/images/binding-affinity-hero.png` | `public/images/projects/binding-affinity/hero.png` |
-| `public/images/binding-affinity-ui.png` | `public/images/projects/binding-affinity/ui.png` |
-| `public/images/binding-affinity-sim.png` | `public/images/projects/binding-affinity/sim.png` |
+| `public/images/binding-affinity-ui.png`   | `public/images/projects/binding-affinity/ui.png`   |
+| `public/images/binding-affinity-sim.png`  | `public/images/projects/binding-affinity/sim.png`  |
 
 **cellPACK:**
-| Current | New |
-|---|---|
-| `public/images/cellpack-mesoscale.png` | `public/images/projects/cellpack/hero.png` |
-| `public/images/cellpack-hiv.webp` | `public/images/projects/cellpack/hiv.webp` |
-| `public/images/cellpack-systems.png` | `public/images/projects/cellpack/systems.png` |
+| Current                                     | New                                                  |
+| ------------------------------------------- | ---------------------------------------------------- |
+| `public/images/cellpack-mesoscale.png`      | `public/images/projects/cellpack/hero.png`           |
+| `public/images/cellpack-hiv.webp`           | `public/images/projects/cellpack/hiv.webp`           |
+| `public/images/cellpack-systems.png`        | `public/images/projects/cellpack/systems.png`        |
 | `public/images/cellpack-rules-triptych.jpg` | `public/images/projects/cellpack/rules-triptych.jpg` |
 
 **Cell Migration 3D:**
-| Current | New |
-|---|---|
-| `public/images/wbc-postdoc.png` | `public/images/projects/cell-migration-3d/hero.png` |
-| `public/images/wbc-motion.png` | `public/images/projects/cell-migration-3d/motion.png` |
+| Current                                   | New                                                                  |
+| ----------------------------------------- | -------------------------------------------------------------------- |
+| `public/images/wbc-postdoc.png`           | `public/images/projects/cell-migration-3d/hero.png`                  |
+| `public/images/wbc-motion.png`            | `public/images/projects/cell-migration-3d/motion.png`                |
 | `public/images/exploratorium-exhibit.png` | `public/images/projects/cell-migration-3d/exploratorium-exhibit.png` |
 
 **Simularium:**
-| Current | New |
-|---|---|
-| `public/images/simularium.gif` | `public/images/projects/simularium/hero.gif` |
-| `public/images/simularium-viewer.png` | `public/images/projects/simularium/viewer.png` |
+| Current                               | New                                                       |
+| ------------------------------------- | --------------------------------------------------------- |
+| `public/images/simularium.gif`        | `public/images/projects/simularium/hero.gif`              |
+| `public/images/simularium-viewer.png` | `public/images/projects/simularium/viewer.png`            |
 | `public/images/virtual-cell-goal.png` | `public/images/projects/simularium/virtual-cell-goal.png` |
 
 **Town Hall Project:**
-| Current | New |
-|---|---|
-| `public/images/town-hall.png` | `public/images/projects/town-hall-project/hero.png` |
+| Current                         | New                                                        |
+| ------------------------------- | ---------------------------------------------------------- |
+| `public/images/town-hall.png`   | `public/images/projects/town-hall-project/hero.png`        |
 | `public/images/indivisible.png` | `public/images/projects/town-hall-project/indivisible.png` |
 
 **Cell Feature Explorer:**
-| Current | New |
-|---|---|
-| `public/images/cell-feature-explorer.png` | `public/images/projects/cell-feature-explorer/hero.png` |
-| `public/images/mitochondria.png` | `public/images/projects/cell-feature-explorer/mitochondria.png` |
-| `public/images/cell-motion.gif` | `public/images/projects/cell-feature-explorer/cell-motion.gif` |
+| Current                                   | New                                                             |
+| ----------------------------------------- | --------------------------------------------------------------- |
+| `public/images/cell-feature-explorer.png` | `public/images/projects/cell-feature-explorer/hero.png`         |
+| `public/images/mitochondria.png`          | `public/images/projects/cell-feature-explorer/mitochondria.png` |
+| `public/images/cell-motion.gif`           | `public/images/projects/cell-feature-explorer/cell-motion.gif`  |
 
 **Mutual Aid Hub:**
-| Current | New |
-|---|---|
-| `public/images/mutual-aid-hub-map.png` | `public/images/projects/mutual-aid-hub/hero.png` |
-| `public/images/mutual-aid-hub-banner.png` | `public/images/projects/mutual-aid-hub/banner.png` |
-| `public/images/mutual-aid-hub.png` | `public/images/projects/mutual-aid-hub/process.png` |
+| Current                                   | New                                                 |
+| ----------------------------------------- | --------------------------------------------------- |
+| `public/images/mutual-aid-hub-map.png`    | `public/images/projects/mutual-aid-hub/hero.png`    |
+| `public/images/mutual-aid-hub-banner.png` | `public/images/projects/mutual-aid-hub/banner.png`  |
+| `public/images/mutual-aid-hub.png`        | `public/images/projects/mutual-aid-hub/process.png` |
 
 **IMSC:**
-| Current | New |
-|---|---|
-| `public/videos/imsc-rotating.mp4` | `public/videos/projects/imsc/rotating.mp4` |
-| `public/images/mitochondria.png` | `public/images/projects/cell-feature-explorer/mitochondria.png` *(canonical — see note)* |
-| `public/images/mitosis.gif` | `public/images/projects/imsc/mitosis.gif` |
-| `public/videos/imsc-mitosis-stages.mp4` | `public/videos/projects/imsc/mitosis-stages.mp4` |
-| `public/images/imsc-essay.jpg` | `public/images/projects/imsc/essay.jpg` |
+| Current                                 | New                                                                                      |
+| --------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `public/videos/imsc-rotating.mp4`       | `public/videos/projects/imsc/rotating.mp4`                                               |
+| `public/images/mitochondria.png`        | `public/images/projects/cell-feature-explorer/mitochondria.png` *(canonical — see note)* |
+| `public/images/mitosis.gif`             | `public/images/projects/imsc/mitosis.gif`                                                |
+| `public/videos/imsc-mitosis-stages.mp4` | `public/videos/projects/imsc/mitosis-stages.mp4`                                         |
+| `public/images/imsc-essay.jpg`          | `public/images/projects/imsc/essay.jpg`                                                  |
 
 *Note: `imsc` uses `mitochondria.png` as its `cardImage`. That file lives canonically in `projects/cell-feature-explorer/`. Update `content/projects/imsc.md` to reference `/images/projects/cell-feature-explorer/mitochondria.png`.*
 
 **HBV Animation:**
-| Current | New |
-|---|---|
-| `public/videos/hbv-hero.mp4` | `public/videos/projects/hbv-animation/hero.mp4` |
-| `public/images/hbv-virus-hero.jpg` | `public/images/projects/hbv-animation/card.jpg` |
+| Current                              | New                                                     |
+| ------------------------------------ | ------------------------------------------------------- |
+| `public/videos/hbv-hero.mp4`         | `public/videos/projects/hbv-animation/hero.mp4`         |
+| `public/images/hbv-virus-hero.jpg`   | `public/images/projects/hbv-animation/card.jpg`         |
 | `public/videos/hbv-cccdna-cycle.mp4` | `public/videos/projects/hbv-animation/cccdna-cycle.mp4` |
-| `public/images/hbv-lifecycle.jpg` | `public/images/projects/hbv-animation/lifecycle.jpg` |
+| `public/images/hbv-lifecycle.jpg`    | `public/images/projects/hbv-animation/lifecycle.jpg`    |
 
 **CRISPR Cover:**
-| Current | New |
-|---|---|
-| `public/images/crispr-cover.jpg` | `public/images/projects/crispr-cover/hero.jpg` |
-| `public/images/mucus-viz.png` | `public/images/projects/crispr-cover/process.png` |
+| Current                          | New                                               |
+| -------------------------------- | ------------------------------------------------- |
+| `public/images/crispr-cover.jpg` | `public/images/projects/crispr-cover/hero.jpg`    |
+| `public/images/mucus-viz.png`    | `public/images/projects/crispr-cover/process.png` |
 
 **Trapping Kinases:**
-| Current | New |
-|---|---|
-| `public/images/chem-biol-cover.png` | `public/images/projects/trapping-kinases/hero.png` |
+| Current                                     | New                                                            |
+| ------------------------------------------- | -------------------------------------------------------------- |
+| `public/images/chem-biol-cover.png`         | `public/images/projects/trapping-kinases/hero.png`             |
 | `public/images/kinase-mechanism-detail.png` | `public/images/projects/trapping-kinases/mechanism-detail.png` |
-| `public/images/kinases-mechanism.png` | `public/images/projects/trapping-kinases/mechanism.png` |
+| `public/images/kinases-mechanism.png`       | `public/images/projects/trapping-kinases/mechanism.png`        |
 
 **LDL & HDL Models:**
-| Current | New |
-|---|---|
-| `public/images/ldl-particles.png` | `public/images/projects/ldl-hdl-models/hero.png` |
-| `public/images/apob-model.png` | `public/images/projects/ldl-hdl-models/apob-model.png` |
+| Current                            | New                                                        |
+| ---------------------------------- | ---------------------------------------------------------- |
+| `public/images/ldl-particles.png`  | `public/images/projects/ldl-hdl-models/hero.png`           |
+| `public/images/apob-model.png`     | `public/images/projects/ldl-hdl-models/apob-model.png`     |
 | `public/images/sci-viz-banner.png` | `public/images/projects/ldl-hdl-models/sci-viz-banner.png` |
 
 **Indivisible:**
-| Current | New |
-|---|---|
-| `public/images/indivisible.png` | `public/images/projects/indivisible/hero.png` |
-| `public/images/town-hall.png` | `public/images/projects/indivisible/town-hall.png` |
+| Current                         | New                                                |
+| ------------------------------- | -------------------------------------------------- |
+| `public/images/indivisible.png` | `public/images/projects/indivisible/hero.png`      |
+| `public/images/town-hall.png`   | `public/images/projects/indivisible/town-hall.png` |
 
 *Note: `town-hall.png` and `indivisible.png` are used by both `town-hall-project` and `indivisible`. Each project gets its own copy (different folder, different descriptive name). Town Hall Project's `processImage` becomes `/images/projects/town-hall-project/indivisible.png`; Indivisible's `processImage` becomes `/images/projects/indivisible/town-hall.png`.*
 
 **Portraits:**
-| Current | New |
-|---|---|
-| `public/images/painting-main.jpg` | `public/images/projects/portraits/hero.jpg` |
-| `public/images/art-teddy.jpg` | `public/images/projects/portraits/teddy.jpg` |
-| `public/images/art-leslie.jpg` | `public/images/projects/portraits/leslie.jpg` |
-| `public/images/art-bruce.png` | `public/images/projects/portraits/bruce.png` |
-| `public/images/art-elenore.jpg` | `public/images/projects/portraits/elenore.jpg` |
-| `public/images/art-angelica.jpg` | `public/images/projects/portraits/angelica.jpg` |
-| `public/images/art-paulo.jpg` | `public/images/projects/portraits/paulo.jpg` |
-| `public/images/art-warren.jpg` | `public/images/projects/portraits/warren.jpg` |
-| `public/images/art-img0036.jpg` | `public/images/projects/portraits/img0036.jpg` |
+| Current                           | New                                             |
+| --------------------------------- | ----------------------------------------------- |
+| `public/images/painting-main.jpg` | `public/images/projects/portraits/hero.jpg`     |
+| `public/images/art-teddy.jpg`     | `public/images/projects/portraits/teddy.jpg`    |
+| `public/images/art-leslie.jpg`    | `public/images/projects/portraits/leslie.jpg`   |
+| `public/images/art-bruce.png`     | `public/images/projects/portraits/bruce.png`    |
+| `public/images/art-elenore.jpg`   | `public/images/projects/portraits/elenore.jpg`  |
+| `public/images/art-angelica.jpg`  | `public/images/projects/portraits/angelica.jpg` |
+| `public/images/art-paulo.jpg`     | `public/images/projects/portraits/paulo.jpg`    |
+| `public/images/art-warren.jpg`    | `public/images/projects/portraits/warren.jpg`   |
+| `public/images/art-img0036.jpg`   | `public/images/projects/portraits/img0036.jpg`  |
 
 **Posts:**
-| Current | New |
-|---|---|
+| Current                                     | New                                                                                             |
+| ------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | `public/images/cellpack-rules-triptych.jpg` | `public/images/posts/cellpack-rules-of-organization/cover.jpg` *(copy from projects/cellpack/)* |
-| `public/images/cellpack-nucleus-bias.png` | `public/images/posts/cellpack-peroxisomes/cover.png` |
-| `public/images/cellpack-hiv.webp` | `public/images/posts/cellpack-out-of-the-box/cover.webp` *(copy from projects/cellpack/)* |
-| `public/images/data-to-knowledge.png` | `public/images/posts/data-to-knowledge/cover.png` |
-| `public/images/motion-muybridge.png` | `public/images/posts/motion-in-static-images/cover.png` |
-| `public/images/hl60-rosettes.png` | `public/images/posts/white-blood-cells/cover.png` |
-| `public/images/chem-biol-cover.png` | `public/images/posts/crosslinker-into-focus/cover.png` *(copy from projects/trapping-kinases/)* |
+| `public/images/cellpack-nucleus-bias.png`   | `public/images/posts/cellpack-peroxisomes/cover.png`                                            |
+| `public/images/cellpack-hiv.webp`           | `public/images/posts/cellpack-out-of-the-box/cover.webp` *(copy from projects/cellpack/)*       |
+| `public/images/data-to-knowledge.png`       | `public/images/posts/data-to-knowledge/cover.png`                                               |
+| `public/images/motion-muybridge.png`        | `public/images/posts/motion-in-static-images/cover.png`                                         |
+| `public/images/hl60-rosettes.png`           | `public/images/posts/white-blood-cells/cover.png`                                               |
+| `public/images/chem-biol-cover.png`         | `public/images/posts/crosslinker-into-focus/cover.png` *(copy from projects/trapping-kinases/)* |
 
 *Note: post cover images marked "copy" are the same file as a project image. Copy (don't symlink) so each location is self-contained.*
 

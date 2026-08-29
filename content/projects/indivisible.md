@@ -20,6 +20,5 @@ body1: |
 quote: Civic technology works best when it solves the problem immediately in front of someone.
 body2: |
   I built the map using React and Mapbox, with a data pipeline pulling from the Indivisible group database. The tool needed to handle both geographic search and filtering by event type, and to work well on mobile — where most people were accessing it.
-body3: |
-  The Indivisible Map was the direct predecessor to the Town Hall Project's mapping work. The patterns I developed here — performant clustering, mobile-first interaction design, live data integration — became the foundation for how I approached civic mapping projects going forward.
+
 ---

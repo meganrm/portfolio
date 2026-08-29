@@ -1,4 +1,5 @@
 ---
+public: false
 title: Simularium
 year: "2022"
 medium: TypeScript · WebGL

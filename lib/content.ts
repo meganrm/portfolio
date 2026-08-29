@@ -12,6 +12,7 @@ function loadContent<T>(dir: string): T[] {
       const { data } = matter(fs.readFileSync(path.join(folder, f), 'utf8'))
       return { id: f.replace(/\.md$/, ''), ...data } as T
     })
+    .filter((item: any) => item.public !== false)
 }
 
 export const PROJECTS = loadContent<Project>('content/projects')

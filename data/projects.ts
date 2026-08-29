@@ -41,6 +41,7 @@ export interface Project {
     screenshotImage?: string; // Template 1 right column; falls back to heroImage
     processImage?: string;
     detailImage?: string;
+    public?: boolean;
     featured?: boolean; // true for homepage-featured projects
     pageTemplate: "tool" | "visual"; // determines which page template to render
     sections?: ProjectSection[]; // when present, replaces body1/quote/body2/body3 with anchored sections

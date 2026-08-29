@@ -8,7 +8,7 @@ excerpt: |
   Notes on the Chemistry & Biology cover and the metaphor it set up — kinase substrate pairs, but also everything I've made since.
 url: https://doi.org/10.1016/j.chembiol.2014.02.022
 lead: |
-  My dissertation paper came out today in Chemistry & Biology. The cover is an illustration I made for it — kinase active sites in muted gray, the new cross-linker structures in the foreground in deep orange and burgundy — under the line "Crosslinker Brings Kinase-Substrate Pairs Into Focus."
+  My dissertation paper came out today in Chemistry & Biology. The cover is an illustration I made for it under the line "Crosslinker Brings Kinase-Substrate Pairs Into Focus."
 body1: |
   The chemistry is described in the paper. The short version: kinases transfer a γ-phosphate from ATP to a substrate hydroxyl, the small-molecule ATP is a promiscuous binder, and so the specificity of the reaction lives in the kinase-substrate interaction itself. I designed an ATP analog that, when held in the active site by a real substrate, forms a covalent bond between the two proteins rather than completing the phosphate transfer. The pair gets stuck together long enough to identify.
 h1: The metaphor

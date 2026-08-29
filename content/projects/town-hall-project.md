@@ -1,4 +1,5 @@
 ---
+public: false
 title: Town Hall Project
 year: "2017"
 medium: JavaScript · Mapping
