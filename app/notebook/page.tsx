@@ -2,6 +2,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import Eyebrow from '@/components/Eyebrow'
 import Tag from '@/components/Tag'
+import DraftBadge from '@/components/DraftBadge'
 import { POSTS } from '@/lib/content'
 
 export const metadata: Metadata = {
@@ -31,6 +32,7 @@ export default function NotebookPage() {
                 <p className="pexcerpt">{post.excerpt}</p>
               </div>
               <Tag>{post.tag.label}</Tag>
+              {post.public === false && <DraftBadge />}
             </Link>
           ))}
         </div>

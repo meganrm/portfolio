@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { ArrowLeft, ArrowRight, ExternalLink } from 'lucide-react'
 import Eyebrow from '@/components/Eyebrow'
+import DraftBadge from '@/components/DraftBadge'
 import GalleryLightbox from '@/components/GalleryLightbox'
 import { PROJECTS } from '@/lib/content'
 import { withBasePath } from '@/lib/basePath'
@@ -173,6 +174,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           </Link>
           <header className="detail-head">
             <Eyebrow dot>{project.tags.map((t) => t.label).join(' · ')}</Eyebrow>
+            {project.public === false && <DraftBadge />}
             <h1 className="detail-title">{project.title}</h1>
             <MetaRow project={project} />
           </header>
@@ -223,6 +225,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           <div className="detail-intro">
             <header>
               <Eyebrow dot>{project.tags.map((t) => t.label).join(' · ')}</Eyebrow>
+              {project.public === false && <DraftBadge />}
               <h1 className="detail-title">{project.title}</h1>
               <MetaRow project={project} />
               <p className="detail-lead">{project.lead}</p>
@@ -281,6 +284,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
       <div className="container">
         <header className="detail-head">
           <Eyebrow dot>{project.tags.map((t) => t.label).join(' · ')}</Eyebrow>
+          {project.public === false && <DraftBadge />}
           <h1 className="detail-title">{project.title}</h1>
           <MetaRow project={project} />
           <p className="detail-lead">{project.lead}</p>
