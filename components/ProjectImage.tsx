@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import ImagePlaceholder from './ImagePlaceholder'
+import { withBasePath } from '@/lib/basePath'
 import type { Tone } from '@/data/projects'
 import type { CSSProperties } from 'react'
 
@@ -28,8 +29,8 @@ export default function ProjectImage({ src, alt, tone = 'teal', label, nodes, st
     <div className={`imgph${className ? ` ${className}` : ''}`} style={{ position: 'relative', ...style }}>
       {isVideo ? (
         <video
-          src={src}
-          poster={poster}
+          src={withBasePath(src)}
+          poster={poster ? withBasePath(poster) : undefined}
           autoPlay
           loop
           muted
@@ -45,7 +46,7 @@ export default function ProjectImage({ src, alt, tone = 'teal', label, nodes, st
         />
       ) : (
         <Image
-          src={src}
+          src={withBasePath(src)}
           alt={alt}
           fill
           sizes="(max-width: 860px) 100vw, 50vw"

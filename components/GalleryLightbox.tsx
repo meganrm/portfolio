@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import Image from 'next/image'
 import { X, ChevronLeft, ChevronRight } from 'lucide-react'
+import { withBasePath } from '@/lib/basePath'
 import type { GalleryItem } from '@/data/projects'
 
 export default function GalleryLightbox({ items }: { items: GalleryItem[] }) {
@@ -49,7 +50,7 @@ export default function GalleryLightbox({ items }: { items: GalleryItem[] }) {
               onClick={() => setOpenIndex(i)}
               aria-label={`View ${alt} full size`}
             >
-              <Image src={src} alt={alt} fill style={{ objectFit: 'cover', borderRadius: 0 }} />
+              <Image src={withBasePath(src)} alt={alt} fill style={{ objectFit: 'cover', borderRadius: 0 }} />
             </button>
             {blurb && <figcaption className="art-gallery-caption">{blurb}</figcaption>}
           </figure>
@@ -89,7 +90,7 @@ export default function GalleryLightbox({ items }: { items: GalleryItem[] }) {
                 play nicely with "as large as fits, intrinsic aspect" */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={active.src}
+              src={withBasePath(active.src)}
               alt={active.alt}
               className="lightbox-image"
             />

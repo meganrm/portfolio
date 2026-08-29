@@ -5,6 +5,7 @@ import { ArrowLeft, ExternalLink } from "lucide-react";
 import Tag from "@/components/Tag";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 import { POSTS } from "@/lib/content";
+import { withBasePath } from "@/lib/basePath";
 import type { Metadata } from "next";
 
 export function generateStaticParams() {
@@ -68,7 +69,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
                         style={{ position: "relative", aspectRatio: "16 / 9" }}
                     >
                         <Image
-                            src={post.coverImage}
+                            src={withBasePath(post.coverImage)}
                             alt={`${post.title} cover`}
                             fill
                             sizes="(max-width: 860px) 100vw, 860px"

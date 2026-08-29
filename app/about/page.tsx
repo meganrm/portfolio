@@ -3,6 +3,7 @@ import { Mail, ArrowDown } from 'lucide-react'
 import type { Metadata } from 'next'
 import Eyebrow from '@/components/Eyebrow'
 import Tag from '@/components/Tag'
+import { withBasePath } from '@/lib/basePath'
 
 export const metadata: Metadata = {
   title: 'About — Megan Riel-Mehan',
@@ -36,7 +37,7 @@ export default function AboutPage() {
               <a href="mailto:megan@meganrielmehan.com" className="btn btn-primary">
                 <Mail size={17} /> Get in touch
               </a>
-              <a href="/megan_rielmehan_cv.pdf" className="btn btn-ghost">
+              <a href={withBasePath('/megan_rielmehan_cv.pdf')} className="btn btn-ghost">
                 <ArrowDown size={17} /> Download CV
               </a>
             </div>
@@ -44,7 +45,7 @@ export default function AboutPage() {
           <div className="about-portrait">
             <div className="imgph" style={{ height: 420, position: 'relative', borderRadius: 'var(--radius-organic)' }}>
               <Image
-                src="/images/portrait.jpg"
+                src={withBasePath('/images/portrait.jpg')}
                 alt="Megan Riel-Mehan"
                 fill
                 style={{ objectFit: 'cover', objectPosition: 'top center' }}

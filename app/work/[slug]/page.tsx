@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, ExternalLink } from 'lucide-react'
 import Eyebrow from '@/components/Eyebrow'
 import GalleryLightbox from '@/components/GalleryLightbox'
 import { PROJECTS } from '@/lib/content'
+import { withBasePath } from '@/lib/basePath'
 import type { Project } from '@/data/projects'
 import type { Metadata } from 'next'
 
@@ -27,7 +28,7 @@ function BodyImage({ src, alt, sizes = '(max-width: 860px) 100vw, 50vw' }: {
   if (VIDEO_EXT.test(src)) {
     return (
       <video
-        src={src}
+        src={withBasePath(src)}
         autoPlay
         loop
         muted
@@ -40,7 +41,7 @@ function BodyImage({ src, alt, sizes = '(max-width: 860px) 100vw, 50vw' }: {
   }
   return (
     <Image
-      src={src}
+      src={withBasePath(src)}
       alt={alt}
       width={0}
       height={0}
@@ -199,13 +200,17 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         {project.heroImage && (
           <div className="detail-banner" aria-hidden="true">
             {VIDEO_EXT.test(project.heroImage) ? (
-              <video src={project.heroImage} autoPlay loop muted playsInline />
+              <video src={withBasePath(project.heroImage)} autoPlay loop muted playsInline />
             ) : (
               <Image
-                src={project.heroImage}
+                src={withBasePath(project.heroImage)}
                 alt=""
                 fill
-                style={{ objectFit: 'cover', filter: 'brightness(0.5) saturate(0.7)' }}
+                style={{
+                  objectFit: 'cover',
+                  objectPosition: project.heroImagePosition ?? 'center',
+                  filter: 'brightness(0.5) saturate(0.7)',
+                }}
               />
             )}
           </div>
@@ -253,9 +258,24 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
       </div>
 
       {project.heroImage && (
-        <div className="detail-hero-natural">
-          <BodyImage src={project.heroImage} alt={project.title} sizes="100vw" />
-        </div>
+        project.heroImagePosition ? (
+          // Explicit position set — crop to a fixed band so the chosen
+          // focal point is honored, instead of the default natural-aspect
+          // top-anchored crop below.
+          <div className="detail-hero-natural detail-hero-natural--positioned">
+            <Image
+              src={withBasePath(project.heroImage)}
+              alt={project.title}
+              fill
+              sizes="100vw"
+              style={{ objectFit: 'cover', objectPosition: project.heroImagePosition }}
+            />
+          </div>
+        ) : (
+          <div className="detail-hero-natural">
+            <BodyImage src={project.heroImage} alt={project.title} sizes="100vw" />
+          </div>
+        )
       )}
 
       <div className="container">

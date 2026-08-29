@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Tag from './Tag'
 import { generateDots, dotPositionStyle } from '@/lib/seedDots'
+import { withBasePath } from '@/lib/basePath'
 import type { Project } from '@/data/projects'
 
 const TONE_RGB: Record<string, string> = {
@@ -27,7 +28,7 @@ export default function WorkCard({ project }: { project: Project }) {
       <div className="wcard-img">
         {(project.cardImage ?? project.heroImage) ? (
           <Image
-            src={(project.cardImage ?? project.heroImage)!}
+            src={withBasePath((project.cardImage ?? project.heroImage)!)}
             alt={project.title}
             fill
             sizes="(max-width: 560px) 100vw, (max-width: 860px) 50vw, 33vw"
