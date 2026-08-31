@@ -22,12 +22,12 @@ export default function Footer() {
           <div className="footer-col">
             <h5>Elsewhere</h5>
             <a href="https://github.com/meganrm" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://scholar.google.com" target="_blank" rel="noopener noreferrer">Google Scholar</a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://www.linkedin.com/in/meganrielmehan/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://instagram.com/meganmerica" target="_blank" rel="noopener noreferrer">Instagram</a>
           </div>
           <div className="footer-col">
             <h5>Say hello</h5>
-            <a href="mailto:megan@meganrielmehan.com">megan@meganrielmehan.com</a>
+            <a href="mailto:meganrm@gmail.com">meganrm@gmail.com</a>
             <a>Seattle, WA</a>
           </div>
         </div>

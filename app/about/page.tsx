@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Mail, ArrowDown } from 'lucide-react'
+import { Mail, ExternalLink } from 'lucide-react'
 import type { Metadata } from 'next'
 import Eyebrow from '@/components/Eyebrow'
 import Tag from '@/components/Tag'
@@ -34,11 +34,16 @@ export default function AboutPage() {
               </p>
             </div>
             <div style={{ display: 'flex', gap: 14, marginTop: 30 }}>
-              <a href="mailto:megan@meganrielmehan.com" className="btn btn-primary">
+              <a href="mailto:meganrm@gmail.com" className="btn btn-primary">
                 <Mail size={17} /> Get in touch
               </a>
-              <a href={withBasePath('/megan_rielmehan_cv.pdf')} className="btn btn-ghost">
-                <ArrowDown size={17} /> Download CV
+              <a
+                href="https://docs.google.com/document/d/14no4Oh8K1VZP2FdYV6TfJYBxwBkEuzRRs_6WDD76vhA/preview"
+                className="btn btn-ghost"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <ExternalLink size={17} /> View CV
               </a>
             </div>
           </div>
