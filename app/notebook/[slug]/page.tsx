@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import Tag from "@/components/Tag";
+import DraftBadge from "@/components/DraftBadge";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 import { POSTS } from "@/lib/content";
 import { withBasePath } from "@/lib/basePath";
@@ -46,6 +47,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
                         <span className="meta">
                             {post.date} · {post.read}
                         </span>
+                        {post.public === false && <DraftBadge />}
                     </div>
                     <h1 className="article-title">{post.title}</h1>
                     <div className="article-byline">

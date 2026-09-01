@@ -12,7 +12,11 @@ function loadContent<T>(dir: string): T[] {
       const { data } = matter(fs.readFileSync(path.join(folder, f), 'utf8'))
       return { id: f.replace(/\.md$/, ''), ...data } as T
     })
-    .filter((item: any) => item.public !== false)
+    // Drafts (public: false) stay visible in `next dev` so they can be
+    // edited before publishing, but are excluded from any real build
+    // (`next build`, including local static-export testing, and the
+    // GitHub Actions build both set NODE_ENV=production).
+    .filter((item: any) => item.public !== false || process.env.NODE_ENV === 'development')
 }
 
 export const PROJECTS = loadContent<Project>('content/projects')

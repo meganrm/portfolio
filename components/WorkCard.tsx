@@ -2,6 +2,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import Tag from './Tag'
+import DraftBadge from './DraftBadge'
 import { generateDots, dotPositionStyle } from '@/lib/seedDots'
 import { withBasePath } from '@/lib/basePath'
 import type { Project } from '@/data/projects'
@@ -45,6 +46,7 @@ export default function WorkCard({ project }: { project: Project }) {
           <div className="wcard-title">
             {project.title}
             {project.featured && <span className="wcard-badge">Featured</span>}
+            {project.public === false && <DraftBadge />}
           </div>
         </div>
       </div>
