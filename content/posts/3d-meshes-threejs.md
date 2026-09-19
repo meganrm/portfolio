@@ -12,7 +12,7 @@ body1: |
   The first stage is UCSF Chimera: load the volumetric data, adjust voxel sizing, step size, and isovalue to get the surface you want, then export as a single nested .obj file. Chimera's .obj export has one advantage over ChimeraX: it packages everything in one file, which simplifies downstream handling.
 h1: Baking ambient occlusion in Cinema4D
 body2: |
-  Stage two runs in Cinema4D via the Python SDK (uPy). The script imports the .obj, merges it with a starter file containing render settings, applies polygon reduction and smoothing via deformers, generates UV maps using spherical projection, then bakes ambient occlusion at 1024×2 resolution with a 3-pixel border. Key settings: Maximum Distortion = 1%, Relaxation Steps = 0.
+  Stage two runs in Cinema4D via the Python SDK. The script imports the .obj, merges it with a starter file containing render settings, applies polygon reduction and smoothing via deformers, generates UV maps using spherical projection, then bakes ambient occlusion at 1024×2 resolution with a 3-pixel border. Key settings: Maximum Distortion = 1%, Relaxation Steps = 0.
 body3: |
   The last stage loops through the full file list. Polygon count is the main variable that affects processing time — I found that reducing the polygon-reduction percentage from 90% dramatically improved performance without meaningful loss in visual quality at web resolutions. The output is a .obj plus a .png texture that three.js loads directly.
 ---
