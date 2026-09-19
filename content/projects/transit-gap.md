@@ -13,6 +13,7 @@ tags:
   - label: Civic Tech
   - label: Data Viz
   - label: Personal project
+heroImage: /images/projects/transit-gap/hero.png
 pageTemplate: tool
 lead: |
   A map of where Seattle's transit system costs people time. It draws commute flows between neighborhoods, compares transit travel time against rush-hour driving, and ranks the worst gaps by how many people actually make each trip, so a route that's 3.6× slower for 372 daily commuters surfaces above one that's worse for nobody.
