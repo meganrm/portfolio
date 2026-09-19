@@ -7,6 +7,7 @@ import DraftBadge from '@/components/DraftBadge'
 import GalleryLightbox from '@/components/GalleryLightbox'
 import { PROJECTS } from '@/lib/content'
 import { withBasePath } from '@/lib/basePath'
+import { paragraphs } from '@/lib/paragraphs'
 import type { Project } from '@/data/projects'
 import type { Metadata } from 'next'
 
@@ -71,6 +72,16 @@ function MetaRow({ project }: { project: Project }) {
           </p>
         </div>
       )}
+      {project.repoUrl && (
+        <div className="col">
+          <h6>Source</h6>
+          <p>
+            <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" className="link-arrow" style={{ fontSize: 15 }}>
+              GitHub <ExternalLink size={14} />
+            </a>
+          </p>
+        </div>
+      )}
     </div>
   )
 }
@@ -88,11 +99,11 @@ function ProjectBody({ project }: { project: Project }) {
     <>
       {project.processImage ? (
         <div className="detail-section">
-          <div className="detail-section-text"><p>{project.body1}</p></div>
+          <div className="detail-section-text">{paragraphs(project.body1).map((t, i) => <p key={i}>{t}</p>)}</div>
           <div><BodyImage src={project.processImage} alt={`${project.title} — process`} /></div>
         </div>
       ) : (
-        <div className="detail-closing"><p>{project.body1}</p></div>
+        <div className="detail-closing">{paragraphs(project.body1).map((t, i) => <p key={i}>{t}</p>)}</div>
       )}
 
       {project.quote && <blockquote className="pullquote">{project.quote}</blockquote>}
@@ -100,13 +111,13 @@ function ProjectBody({ project }: { project: Project }) {
       {project.detailImage ? (
         <div className="detail-section detail-section--flip">
           <div><BodyImage src={project.detailImage} alt={`${project.title} — detail`} /></div>
-          <div className="detail-section-text"><p>{project.body2}</p></div>
+          <div className="detail-section-text">{paragraphs(project.body2).map((t, i) => <p key={i}>{t}</p>)}</div>
         </div>
       ) : (
-        <div className="detail-closing"><p>{project.body2}</p></div>
+        <div className="detail-closing">{paragraphs(project.body2).map((t, i) => <p key={i}>{t}</p>)}</div>
       )}
 
-      {project.body3 && <div className="detail-closing"><p>{project.body3}</p></div>}
+      {project.body3 && <div className="detail-closing">{paragraphs(project.body3).map((t, i) => <p key={i}>{t}</p>)}</div>}
     </>
   )
 }

@@ -7,6 +7,7 @@ import DraftBadge from "@/components/DraftBadge";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 import { POSTS } from "@/lib/content";
 import { withBasePath } from "@/lib/basePath";
+import { paragraphs } from "@/lib/paragraphs";
 import type { Metadata } from "next";
 
 export function generateStaticParams() {
@@ -89,10 +90,10 @@ export default function PostPage({ params }: { params: { slug: string } }) {
                     <p style={{ fontSize: 21, color: "var(--ink-2)" }}>
                         {post.lead}
                     </p>
-                    <p>{post.body1}</p>
-                    <h3>{post.h1}</h3>
-                    <p>{post.body2}</p>
-                    <p>{post.body3}</p>
+                    {paragraphs(post.body1).map((t, i) => <p key={`b1-${i}`}>{t}</p>)}
+                    {post.h1 && <h3>{post.h1}</h3>}
+                    {paragraphs(post.body2).map((t, i) => <p key={`b2-${i}`}>{t}</p>)}
+                    {paragraphs(post.body3).map((t, i) => <p key={`b3-${i}`}>{t}</p>)}
                     {post.url && (
                         <p>
                             <a

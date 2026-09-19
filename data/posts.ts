@@ -11,7 +11,7 @@ export interface Post {
     excerpt: string;
     lead: string;
     body1: string;
-    h1: string;
+    h1?: string; // optional subheading before body2
     body2: string;
     body3: string;
     public?: boolean;

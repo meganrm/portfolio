@@ -35,6 +35,7 @@ export interface Project {
     body2: string;
     body3: string;
     url?: string;
+    repoUrl?: string; // optional source repository link
     heroImage?: string;
     heroImagePosition?: string; // CSS object-position override, default 'center'
     cardImage?: string; // overrides heroImage on the work grid card only
