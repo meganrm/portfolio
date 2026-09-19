@@ -1,5 +1,5 @@
 ---
-public: false
+public: true
 date: April 2026
 read: 3 min read
 tag:
