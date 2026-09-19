@@ -7,7 +7,7 @@ context: Allen Institute for Cell Science
 tone: mustard
 altTone: teal
 blurb: An interactive Simularium-powered education module for teaching binding affinity from agent-based simulation.
-url: https://simularium.allencell.org
+url: https://simularium.allencell.org/learn/binding-affinity/index.html
 tags:
   - label: Sci-Vis
   - label: Research
