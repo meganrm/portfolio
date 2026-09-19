@@ -1,5 +1,5 @@
 ---
-public: false
+public: true
 title: Simularium
 year: "2022"
 medium: TypeScript · WebGL
@@ -14,10 +14,9 @@ tags:
   - label: Research
 featured: true
 pageTemplate: tool
-heroImage: /images/projects/simularium/hero.gif
-screenshotImage: /images/projects/simularium/viewer.png
+heroImage: /images/projects/simularium/simularium-banner.png
+screenshotImage: /images/projects/simularium/homepage.png
 processImage: /images/projects/simularium/viewer.png
-detailImage: /images/projects/simularium/virtual-cell-goal.png
 lead: |
   Simularium lets researchers view, explore, and share spatiotemporal biological simulations directly in the browser — no specialized software required.
 body1: |

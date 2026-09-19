@@ -13,8 +13,8 @@ tags:
   - label: Research
 pageTemplate: tool
 heroImage: /images/projects/binding-affinity/hero.png
-screenshotImage: /images/projects/binding-affinity/ui.png
-processImage: /images/projects/binding-affinity/sim.png
+screenshotImage: /images/projects/binding-affinity/hero.png
+processImage: /images/projects/binding-affinity/ui.png
 detailImage: /images/projects/binding-affinity/ui.png
 lead: |
   The biggest misconceptions in introductory biology cluster around emergent behavior — how molecular interactions at one scale produce the bulk phenomena we observe at another. The Binding Affinity module is an attempt to teach that bridge directly, by letting students run the simulation themselves.
